@@ -9,7 +9,7 @@
       <router-link to="/cart">前台購物車</router-link> |
       <router-link to="/admin/products">後台購物車列表</router-link>
     </div>
-    <!-- 呈現路由配置元件(一個網頁顯示的區域)。加上才能切換頁面 -->
+    <!-- 呈現路由配置元件(一個網頁顯示的區域)。 加上才能切換頁面 -->
     <router-view></router-view>
   </div>
 </template>
