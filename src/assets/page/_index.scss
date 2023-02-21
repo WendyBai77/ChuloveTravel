@@ -1,6 +1,6 @@
 .header {
   .container {
-    //在.header加相對定位，並在手機版menu下絕對定位(ul就可依header範圍當作座標點
+    //在.header加相對定位，並在手機版menu下絕對定位(ul就可依header範圍當作座標點)
     position: relative;
     display: flex;
     justify-content: space-between;
