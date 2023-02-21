@@ -1,0 +1,127 @@
+.header {
+  .container {
+    //在.header加相對定位，並在手機版menu下絕對定位(ul就可依header範圍當作座標點
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1 a {
+      @include hide-text;
+      display: inline-block;
+      background: url(./img/LOGO.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      max-width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+  }
+  h1 {
+    margin: 0.5rem 0;
+  }
+}
+
+.navbarStyle {
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+}
+
+.main-menu {
+  display: flex;
+  a {
+    display: inline-block;
+    padding: 0.5rem;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+.icon-menu {
+  display: flex;
+  a {
+    display: inline-block;
+    padding: 0 0.8rem;
+  }
+  img {
+    background-size: contain;
+    width: 130%;
+    height: auto;
+  }
+}
+
+.darkGary {
+  color: #1e1e1e;
+}
+.menuStyle {
+  padding-left: 0rem;
+  margin-bottom: 0rem;
+  a {
+    text-decoration: none;
+  }
+}
+
+.banner {
+  background: url("./img/banner1920.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 480px;
+  max-width: 100%;
+}
+
+.banner-content {
+  // margin-left: 350px;
+  // margin-top: 100px;
+  padding: 105px 0 0 300px;
+  span {
+    display: block;
+  }
+  h2 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+  }
+  a {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 12px 24px;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  .container {
+    margin-top: 50px;
+    h2 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 38.4px;
+    }
+  }
+}
+
+.recommend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    width: 100%;
+    height: auto;
+    padding:10px;
+    &:hover {
+      background: #FBF2F7;
+      border: 2px solid #FF8ECB
+    }
+  }
+
+  .btnStyle {
+    border-radius: 16px;
+  }
+  h3 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
