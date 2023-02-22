@@ -1,0 +1,1 @@
+import{_ as o,r as t,o as s,c as a,a as n,b as r}from"./index-6efabed0.js";const c={name:"Home",data(){return{}}},_={class:"home"},d=r("div",{id:"nav"},null,-1);function i(m,p,l,u,f,v){const e=t("router-view");return s(),a("div",_,[d,n(e)])}const $=o(c,[["render",i]]);export{$ as default};
