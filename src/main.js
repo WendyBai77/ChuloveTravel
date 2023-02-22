@@ -10,6 +10,9 @@ import VueAxios from "vue-axios";
 // 匯入自定義scss
 import "./assets/all.scss";
 
+// 匯入Bootstrap JS
+import "bootstrap";
+
 // 引入 VeeValidate 元件跟功能
 import { Form, Field, ErrorMessage, defineRule, configure } from "vee-validate";
 

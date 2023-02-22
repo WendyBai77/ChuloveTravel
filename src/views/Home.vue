@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <h1>你現在在 前台頁面</h1>
+    <!-- <h1>你現在在 前台頁面</h1> -->
     <!-- 屆時放nav 跟footer -->
     <div id="nav">
       <!--to加入對應連結。讓使用者可點擊-->
-      <router-link to="/">首頁</router-link> |
-      <router-link to="/products">前台產品列表</router-link> |
+      <!-- <router-link to="/">首頁</router-link> | -->
+      <!-- <router-link to="/products">前台產品列表</router-link> |
       <router-link to="/cart">前台購物車</router-link> |
-      <router-link to="/admin/products">後台購物車列表</router-link>
+      <router-link to="/admin/products">後台購物車列表</router-link> -->
     </div>
     <!-- 呈現路由配置元件(一個網頁顯示的區域)。 加上才能切換頁面 -->
     <router-view></router-view>

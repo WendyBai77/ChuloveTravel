@@ -1,33 +1,29 @@
 .header {
-  .container {
-    //在.header加相對定位，並在手機版menu下絕對定位(ul就可依header範圍當作座標點)
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    h1 a {
-      @include hide-text;
-      display: inline-block;
-      background: url(./img/LOGO.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      max-width: 100%;
-      height: auto;
-      vertical-align: middle;
+  h1 a {
+    @include hide-text;
+    display: inline-block;
+    background: url(./img/LOGO.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-width: 100%;
+    width: 200px;
+    height: auto;
+    vertical-align: middle;
+  }
+  .navbar-toggler-icon {
+    background: url(./img/Property1=menu@2x.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .navbar-toggler {
+    border: transparent;
+    &:focus {
+      color: #f5d9e8;
     }
   }
-  h1 {
-    margin: 0.5rem 0;
-  }
-}
-
-.navbarStyle {
-  padding-top: 0rem;
-  padding-bottom: 0rem;
 }
 
 .main-menu {
-  display: flex;
   a {
     display: inline-block;
     padding: 0.5rem;
@@ -37,26 +33,22 @@
   }
 }
 .icon-menu {
-  display: flex;
-  a {
-    display: inline-block;
-    padding: 0 0.8rem;
-  }
   img {
     background-size: contain;
-    width: 130%;
+    width: 32px;
     height: auto;
+  }
+  a{
+    &:hover{
+      opacity:0.7;
+    }
   }
 }
 
 .darkGary {
   color: #1e1e1e;
-}
-.menuStyle {
-  padding-left: 0rem;
-  margin-bottom: 0rem;
-  a {
-    text-decoration: none;
+  &:hover{
+    color: #ff8ecb;
   }
 }
 
@@ -67,10 +59,14 @@
   background-position: center center;
   height: 480px;
   max-width: 100%;
+  position: relative;
 }
 
 .banner-content {
-  padding: 105px 0 0 300px;
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%);
   span {
     display: block;
   }
@@ -84,6 +80,9 @@
     font-size: 20px;
     line-height: 24px;
     padding: 12px 24px;
+  }
+  .btn-primary:hover{
+    background: #D6ECFA;
   }
 }
 
@@ -105,12 +104,12 @@
   justify-content: space-between;
   align-items: center;
   a {
-    width: 100%;
+    width: 90%;
     height: auto;
-    padding:10px;
+    padding: 10px;
     &:hover {
-      background: #FBF2F7;
-      border: 2px solid #FF8ECB
+      background: #fbf2f7;
+      border: 2px solid #ff8ecb;
     }
   }
 
