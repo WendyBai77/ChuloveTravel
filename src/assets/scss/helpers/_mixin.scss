@@ -1,0 +1,40 @@
+@mixin hide-text {
+    text-indent: 101%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+// >= 992px
+@mixin w-lg {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+// <= 992px時顯示
+@mixin w-lg-mix {
+    @media (max-width: 991.98px) {
+        @content;
+    }
+}
+
+// >=768
+@mixin w-md {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+// <=768時顯示
+@mixin w-md-max {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+// <=576px時顯示
+@mixin w-sm {
+    @media (max-width: 575.98px) {
+        @content;
+    }
+}

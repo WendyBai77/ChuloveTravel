@@ -8,7 +8,8 @@ import "vue-loading-overlay/dist/css/index.css";
 import axios from "axios";
 import VueAxios from "vue-axios";
 // 匯入自定義scss
-import "./assets/all.scss";
+// import "./assets/all.scss";
+import "./assets/scss/all.scss";
 
 // 匯入Bootstrap JS
 import "bootstrap";

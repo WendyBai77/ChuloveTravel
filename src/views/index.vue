@@ -1,10 +1,10 @@
 <template>
   <div class="header">
-    <!-- 嘗試用bootstrap做漢堡選單 -->
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <!-- mx-auto bootstrap會自動產生 margin 加align-->
       <div class="container-fluid mx-auto align-items-center">
-        <!-- 平板以上隱藏 logo-->
+        <!-- lg以上隱藏 logo-->
         <h1>
           <a class="navbar-brand d-lg-none" href="index.html"> 揪愛一起玩 </a>
         </h1>
@@ -20,23 +20,22 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- 選單項目&漢堡式折疊選單 -->
-        <!-- .collapse .navbar-collapse 用於外層中斷點群組和隱藏導覽列內容 -->
+        <!-- 選單項目 .collapse .navbar-collapse 用於外層中斷點群組和隱藏導覽列內容 -->
         <div
           class="collapse navbar-collapse justify-content-evenly"
           id="navbarSupportedContent"
         >
-          <!-- 平板以上顯示 logo-->
+          <!-- lg以上顯示 logo-->
           <h1>
             <a class="navbar-brand d-lg-block d-none" href="index.html">
               揪愛一起玩
             </a>
           </h1>
 
-          <ul class="navbar-nav mb-2 mb-lg-0 main-menu">
+          <ul class="navbar-nav mb-2 mb-lg-0 main-menu main-menu-lg-mix">
             <li class="nav-item px-2">
               <a
-                class="nav-link darkGary"
+                class="nav-link darkgary"
                 aria-current="page"
                 data-toggle
                 href="#"
@@ -45,7 +44,7 @@
             </li>
             <li class="nav-item px-2">
               <a
-                class="nav-link darkGary"
+                class="nav-link darkgary"
                 aria-current="page"
                 data-toggle
                 href="#"
@@ -54,7 +53,7 @@
             </li>
             <li class="nav-item px-2">
               <a
-                class="nav-link darkGary"
+                class="nav-link darkgary"
                 aria-current="page"
                 data-toggle
                 href="#"
@@ -62,8 +61,9 @@
               >
             </li>
           </ul>
-          <ul class="navbar-nav mb-2 mb-lg-0 px-1 icon-menu">
-            <li class="nav-item px-1">
+          <!--lg以上顯示 （漢堡選單 圖示呈現)-->
+          <ul class="navbar-nav mb-2 mb-lg-0 px-1 icon-menu icon-menu-lg">
+            <li class="nav-item px-1 d-lg-block d-none">
               <a
                 class="nav-link"
                 aria-current="page"
@@ -77,7 +77,7 @@
                 />
               </a>
             </li>
-            <li class="nav-item px-1">
+            <li class="nav-item px-1 d-lg-block d-none">
               <a
                 class="nav-link"
                 aria-current="page"
@@ -91,7 +91,7 @@
                 />
               </a>
             </li>
-            <li class="nav-item px-1">
+            <li class="nav-item px-1 d-lg-block d-none">
               <a
                 class="nav-link"
                 aria-current="page"
@@ -105,7 +105,7 @@
                 />
               </a>
             </li>
-            <li class="nav-item px-1">
+            <li class="nav-item px-1 d-lg-block d-none">
               <a
                 class="nav-link"
                 aria-current="page"
@@ -114,6 +114,52 @@
                 title="購物車"
               >
                 <img src="/src/assets/img/Property1=Variant8.svg" alt="cart" />
+                <span
+                  class="position-absolute translate-middle badge rounded-pill bg-pink-300"
+                >
+                  1
+                </span>
+              </a>
+            </li>
+          </ul>
+          <!-- lg以下顯示 （漢堡選單 圖示轉文字)-->
+          <ul
+            class="navbar-nav mb-2 mb-lg-0 px-1 icon-menu d-lg-none icon-menu-lg-mix"
+          >
+            <li class="nav-item px-1">
+              <a
+                class="nav-link darkgary"
+                aria-current="page"
+                data-toggle
+                href="#"
+                >收藏
+              </a>
+            </li>
+            <li class="nav-item px-1">
+              <a
+                class="nav-link darkgary"
+                aria-current="page"
+                data-toggle
+                href="#"
+                >折價券
+              </a>
+            </li>
+            <li class="nav-item px-1">
+              <a
+                class="nav-link darkgary"
+                aria-current="page"
+                data-toggle
+                href="#"
+                >會員中心
+              </a>
+            </li>
+            <li class="nav-item px-1">
+              <a
+                class="nav-link darkgary"
+                aria-current="page"
+                data-toggle
+                href="#"
+                >購物車
               </a>
             </li>
           </ul>
@@ -130,43 +176,43 @@
       <a class="btn btn-primary" href="#">說走就走 出發Go</a>
     </div>
   </div>
-
+  <!-- 揪愛推薦 -->
   <div class="content">
     <div class="container">
-      <h2 class="mb-3">揪愛推薦</h2>
+      <h2 class="mb-5 mt-6 h2-style">揪愛推薦</h2>
       <ul class="recommend row">
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btnStyle" href="#">
+          <a class="btn btn-gary-100 btn-style" href="#">
             <img src="/src/assets/img/Property1=01.svg" alt="nature" />
             <h3>熱愛大自然</h3>
           </a>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btnStyle" href="#">
+          <a class="btn btn-gary-100 btn-style" href="#">
             <img src="/src/assets/img/Property1=02.svg" alt="nature" />
             <h3>話題展覽</h3>
           </a>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btnStyle" href="#">
+          <a class="btn btn-gary-100 btn-style" href="#">
             <img src="/src/assets/img/Property1=03.svg" alt="nature" />
             <h3>熱門住宿</h3>
           </a>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btnStyle" href="#">
+          <a class="btn btn-gary-100 btn-style" href="#">
             <img src="/src/assets/img/Property1=04.svg" alt="nature" />
             <h3>戶外露營</h3>
           </a>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btnStyle" href="#">
+          <a class="btn btn-gary-100 btn-style" href="#">
             <img src="/src/assets/img/Property1=05.svg" alt="nature" />
             <h3>樂園玩透透</h3>
           </a>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btnStyle" href="#">
+          <a class="btn btn-gary-100 btn-style" href="#">
             <img src="/src/assets/img/Property1=06.svg" alt="nature" />
             <h3>離島旅行</h3>
           </a>
@@ -174,20 +220,225 @@
       </ul>
     </div>
   </div>
+  <!-- 參考別人怎麼玩-->
+  <div class="reference container">
+    <h2 class="mb-5 mt-6 h2-style">參考別人怎麼玩 不怕踩雷氣噗噗</h2>
+    <div class="row justify-content-lg-between justify-content-sm-center">
+      <div class="card col-lg-4">
+        <a href="#">
+          <img
+            src="/src/assets/img/image79@2x.png"
+            class="card-img-top reference-card-img-top position-relative"
+            alt="參考遊記"
+          />
+          <div
+            class="card-body reference-card-body pt-5 text-gary-500 position-relative"
+          >
+            <h4 class="card-text">約會溜小孩都適合</h4>
+            <p class="card-text pt-2">Xpark有哪些展區必看</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="card col-lg-4">
+        <a href="#">
+          <img
+            src="/src/assets/img/image62@2x.png"
+            class="card-img-top reference-card-img-top position-relative"
+            alt="參考遊記"
+          />
+          <div
+            class="card-body reference-card-body pt-5 text-gary-500 position-relative"
+          >
+            <h4 class="card-text">山水沙灘美得像幅畫</h4>
+            <p class="card-text pt-2">到澎湖這回要玩SUP立式划槳</p>
+          </div>
+        </a>
+      </div>
+      <div class="card col-lg-4">
+        <a href="#">
+          <img
+            src="/src/assets/img/image80@2x.png"
+            class="card-img-top reference-card-img-top position-relative"
+            alt="參考遊記"
+          />
+          <div
+            class="card-body reference-card-body pt-5 text-gary-500 position-relative"
+          >
+            <h4 class="card-text">住了會感動的山中民宿</h4>
+            <p class="card-text pt-2">聽海浪聲入眠這才是我要的舒壓之旅</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!--網站特色  -->
+  <div class="feature container mt-6">
+    <ul class="row">
+      <li class="col-lg-12 mb-7">
+        <a
+          class="d-flex flex-lg-row flex-sm-column-reverse justify-content-sm-center flex-column-reverse justify-content-center"
+          href="#"
+        >
+          <div
+            class="col-lg-5 card-body feature-text bg-pink-200 text-gary-500 py-2"
+          >
+            <p class="card-text ps-lg-5 ps-3 py-3">
+              想出去玩，但想到規劃就頭痛
+            </p>
+            <p class="card-text ps-lg-5 ps-3 py-3">
+              找住宿怕踩雷，美美的照片變照騙
+            </p>
+            <p class="card-text ps-lg-5 ps-3 py-3">
+              參考網美達人旅遊體驗，省時又省力
+            </p>
+          </div>
+          <img
+            src="/src/assets/img/想到規劃就頭痛.png"
+            class="col-lg-7 img-fluid radius-end"
+            alt="出遊規劃頭痛圖"
+          />
+        </a>
+      </li>
+      <li class="col-lg-12 mb-7">
+        <div
+          class="d-flex flex-lg-row flex-sm-column justify-content-sm-center flex-column justify-content-center"
+          href="#"
+        >
+          <img
+            src="/src/assets/img/訂行程看遊記一站搞定.png"
+            class="col-lg-7 img-fluid radius-star"
+            alt="看遊記一站搞定"
+          />
+          <div
+            class="col-lg-5 card-body feature-text feature-text-cta bg-purple-200 text-center text-gary-500 align-items-lg-center"
+          >
+            <p class="card-text py-2">
+              訂行程 看遊記<span class="d-block py-lg-4">一站搞定</span>
+            </p>
+            <a class="btn btn-primary feature-btn" href="#"> 出發Go </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!-- 探索熱門城市 -->
+  <div class="bg-yellow-100 pt-5 pb-6">
+    <div class="city container">
+      <h2 class="mb-5 mt-6 h2-style">探索熱門城市</h2>
+      <div class="row row-cols-1 row-cols-lg-4 g-4">
+        <a href="#">
+          <div class="col">
+            <div class="card">
+              <img
+                src="/src/assets/img/Frame399@2x.png"
+                class="card-img-top object-cover card-style rounded-4"
+                style="height: 400px"
+                alt="花蓮"
+              />
+              <div class="card-img-overlay position-set">
+                <h4 class="card-title text-white">花蓮</h4>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="col">
+            <div class="card">
+              <img
+                src="/src/assets/img/Frame400@3x.png"
+                class="card-img-top object-cover card-style rounded-4"
+                style="height: 400px"
+                alt="高雄"
+              />
+              <div class="card-img-overlay position-set">
+                <h4 class="card-title text-white">高雄</h4>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="col">
+            <div class="card">
+              <img
+                src="/src/assets/img/南投@2x.png"
+                class="card-img-top object-cover card-style rounded-4"
+                style="height: 400px"
+                alt="南投"
+              />
+              <div class="card-img-overlay position-set">
+                <h4 class="card-title text-white">南投</h4>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="#">
+          <div class="col">
+            <div class="card">
+              <img
+                src="/src/assets/img/台中@2x.png"
+                class="card-img-top object-cover card-style rounded-4"
+                style="height: 400px"
+                alt="台中"
+              />
+              <div class="card-img-overlay position-set">
+                <h4 class="card-title text-white">台中</h4>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!-- footer -->
+  <div class="footer">
+    <nav
+      class="navbar justify-content-lg-between align-items-lg-center align-items-start"
+    >
+      <div class="container-fluid mx-auto footer-style">
+        <h1>
+          <a class="navbar-brand" href="index.html"> 揪愛一起玩 </a>
+        </h1>
+
+        <div class="main-menu">
+          <h5><a class="darkgary" href="#">商品列表</a></h5>
+        </div>
+        <ul class="icon-menu d-flex">
+          <li>
+            <a href="#">
+              <img src="/src/assets/img/Property1=fb.svg" alt="fb" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="/src/assets/img/Property1=ig.svg" alt="ig" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="/src/assets/img/Property1=line.svg" alt="line" />
+            </a>
+          </li>
+        </ul>
+
+        <div
+          class="border-top container-fluid d-flex justify-content-lg-center justify-content-sm-start"
+        >
+          <p class="text-gary-300 text-lg-center text-sm-start py-2">
+            ©2022 Wendy Bai. All Rights Reserved
+            此網站僅作為面試作品使用，非商業用途
+          </p>
+        </div>
+      </div>
+    </nav>
+  </div>
 </template>
 
-<script lang="ts">
-// 匯入jquery
-import $ from "jquery";
-
+<script>
 export default {
   data() {
     return {};
   },
-  mounted() {
-    $(".nav-link").on("click", function () {
-      $(".navbar-collapse").collapse("hide");
-    });
-  },
+  mounted() {},
 };
 </script>
