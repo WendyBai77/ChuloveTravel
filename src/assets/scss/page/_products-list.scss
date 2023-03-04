@@ -45,18 +45,20 @@
 }
 
 .products-select {
-    width: 160px;
-    padding: 0.5rem 0.4rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ff8ecb;
-    &:focus{
-        outline: none;
-        border: 1px solid #ACB1E7;
-    }
+  width: 160px;
+  padding: 0.5rem 0.4rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ff8ecb;
+  &:focus {
+    outline: none;
+    border: 1px solid #acb1e7;
+  }
 }
 
 .products {
-  position: relative;
+  li {
+    position: relative;
+  }
   .card-row {
     flex-direction: row;
     color: #1e1e1e;
@@ -133,40 +135,42 @@
   }
 }
 
-/*收藏商品*/
-.fa-regular {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: #acb1e7;
-  font-size: 24px;
-  padding: 6px;
-  &:hover {
-    opacity: 0.7;
+.products {
+  /*收藏商品*/
+  .fa-regular {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #acb1e7;
+    font-size: 24px;
+    padding: 6px;
+    &:hover {
+      opacity: 0.7;
+    }
   }
-}
 
-.fa-solid.fa-heart.collect {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: #acb1e7;
-  font-size: 24px;
-  padding: 6px;
-  display: none;
-}
-
-.bi-cart-fill {
-  position: absolute;
-  top: 153px;
-  right: 10px;
-  color: #acb1e7;
-  font-size: 24px;
-  padding: 6px;
-  &:hover {
-    opacity: 0.7;
+  .fa-solid.fa-heart.collect {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #acb1e7;
+    font-size: 24px;
+    padding: 6px;
+    display: none;
   }
-  @include w-md-max {
-    top: 127px;
+
+  .bi-cart-fill {
+    position: absolute;
+    top: 153px;
+    right: 10px;
+    color: #acb1e7;
+    font-size: 24px;
+    padding: 6px;
+    &:hover {
+      opacity: 0.7;
+    }
+    @include w-md-max {
+      top: 127px;
+    }
   }
 }

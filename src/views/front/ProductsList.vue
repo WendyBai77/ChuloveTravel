@@ -80,8 +80,18 @@
                 </div>
               </div></a
             >
+            <!-- 追蹤商品 -->
+            <a class="like-icon" href="#">
+              <i class="fa-regular fa-heart"></i>
+              <!--點擊追蹤 愛心效果  -->
+              <i class="fa-solid fa-heart collect"></i>
+            </a>
+            <!-- 購物車 -->
+            <div class="ms-2">
+              <i class="bi bi-cart-fill"></i>
+            </div>
           </li>
-
+          <!-- 之後再改成渲染 -->
           <li class="mb-3">
             <a href="#" class="card card-row"
               ><img
@@ -109,17 +119,17 @@
                 </div>
               </div></a
             >
+            <!-- 追蹤商品 -->
+            <a class="like-icon" href="#">
+              <i class="fa-regular fa-heart"></i>
+              <!--點擊追蹤 愛心效果  -->
+              <i class="fa-solid fa-heart collect"></i>
+            </a>
+            <!-- 購物車 -->
+            <div class="ms-2">
+              <i class="bi bi-cart-fill"></i>
+            </div>
           </li>
-          <!-- 追蹤商品 -->
-          <a class="like-icon" href="#">
-            <i class="fa-regular fa-heart"></i>
-            <!--點擊追蹤 愛心效果  -->
-            <i class="fa-solid fa-heart collect"></i>
-          </a>
-          <!-- 購物車 -->
-          <div class="ms-2">
-            <i class="bi bi-cart-fill"></i>
-          </div>
         </ul>
         <!--pagination-->
       </div>
