@@ -25,6 +25,8 @@ module.exports = {
           "Dashboard",
           "Orders",
           "Login",
+          "Collection",
+          "Coupon",
         ],
       },
     ],

@@ -1,51 +1,68 @@
 // 來自套件(載入vue-router資源)
 import { createRouter, createWebHashHistory } from "vue-router";
 
-// 路由設定
 const router = createRouter({
-  // 網址路徑模式：使用網址 hash 的形式
   history: createWebHashHistory(import.meta.env.BASE_URL),
-  // 匯入路由表
   routes: [
     {
       path: "/", // 匯入路徑。第一層在最前面需加上斜線
-      component: () => import("../views/Home.vue"), // 匯入外部元件
+      component: () => import("../views/front/Home.vue"),
       // 新增子路由
       children: [
         {
-          path: "", //如果沒有填入入徑，將被預設為子路由
-          component: () => import("../views/Index.vue"),
+          path: "", //沒有填入入徑，將被預設為子路由
+          name: "首頁",
+          component: () => import("../views/front/Index.vue"),
         },
-        // {
-        //   path: "products",
-        //   name: "產品列表", //指定路由名稱(name屬性也可進行頁面切換)
-        //   component: () => import("../views/Products.vue"),
-        // },
-        // {
-        //   path: "cart",
-        //   name: "購物車",
-        //   component: () => import("../views/Cart.vue"),
-        // },
+        {
+          path: "products-list",
+          name: "全部產品列表",
+          component: () => import("../views/front/ProductsList.vue"),
+        },
+        {
+          path: "product/:id",
+          name: "單一產品頁",
+          component: () => import("../views/front/Product.vue"),
+        },
+        {
+          path: "collection",
+          name: "收藏商品",
+          component: () => import("../views/front/Collection.vue"),
+        },
+        {
+          path: "cart",
+          name: "購物車",
+          component: () => import("../views/front/Cart.vue"),
+        },
+        {
+          path: "coupon",
+          name: "折價券",
+          component: () => import("../views/front/Coupon.vue"),
+        },
       ],
     },
-    // {
-    //   path: "/login",
-    //   component: () => import("../views/Login.vue"),
-    // },
-    // {
-    //   path: "/admin",
-    //   component: () => import("../views/Dashboard.vue"),
-    //   children: [
-    //     {
-    //       path: "products",
-    //       component: () => import("../views/Dashboard/Products.vue"),
-    //     },
-    //     {
-    //       path: "orders",
-    //       component: () => import("../views/Dashboard/Orders.vue"),
-    //     },
-    //   ],
-    // },
+    {
+      path: "/login",
+      name: "登入頁",
+      component: () => import("../views/admin/Login.vue"),
+    },
+    {
+      path: "/admin",
+      name: "登入後台",
+      component: () => import("../views/admin/Dashboard.vue"),
+      children: [
+        {
+          path: "products-list",
+          name: "後台產品頁",
+          component: () => import("../views/admin/DashboardProductsList.vue"),
+        },
+        {
+          path: "orders",
+          name: "後台訂單頁",
+          component: () => import("../views/admin/DashboardOrders.vue"),
+        },
+      ],
+    },
   ],
 });
 // Vue Router的設定檔建立好之後，就可以匯出給main.js使用

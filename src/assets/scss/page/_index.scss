@@ -2,7 +2,7 @@
   h1 a {
     @include hide-text;
     display: inline-block;
-    background: url(../src/assets/img/LOGO.svg);
+    background: url(@/assets/img/LOGO.svg);
     background-repeat: no-repeat;
     background-size: cover;
     max-width: 100%;
@@ -10,7 +10,7 @@
     height: auto;
   }
   .navbar-toggler-icon {
-    background: url(../src/assets/img/Property1=menu@2x.png);
+    background: url(@/assets/img/Property1=menu@2x.png);
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -64,7 +64,7 @@
 }
 
 .banner {
-  background: url("../src/assets/img/banner1920.png");
+  background: url("@/assets/img/banner1920.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -72,7 +72,7 @@
   max-width: 100%;
   position: relative;
   @include w-sm {
-    background: url("../src/assets/img/banner375@2x.png");
+    background: url("@/assets/img/banner375@2x.png");
     background-position: -150px -130px;
   }
 }
@@ -144,8 +144,7 @@
   border-radius: 16px;
   z-index: 2;
 }
-
-.card {
+.reference .card,.city .card{
   border: transparent;
   background-color: transparent;
 }
@@ -277,7 +276,7 @@
   h1 a {
     @include hide-text;
     display: inline-block;
-    background: url(../src/assets/img/LOGO.svg);
+    background: url(@/assets/img/LOGO.svg);
     background-repeat: no-repeat;
     background-size: cover;
     max-width: 100%;

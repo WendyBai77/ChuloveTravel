@@ -435,10 +435,21 @@
 </template>
 
 <script>
+// 匯入 jquery
+// import $ from "jquery";
+
 export default {
   data() {
     return {};
   },
-  mounted() {},
+  mounted() {
+    // $(document).ready(function () {
+    //   /* 漢堡選單 */
+    //   $(".nav-link").on("click", function () {
+    //     console.log("click");
+    //     $(".navbar-collapse").collapse("hide");
+    //   });
+    // });
+  },
 };
 </script>

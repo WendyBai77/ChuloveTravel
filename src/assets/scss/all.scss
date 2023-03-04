@@ -15,9 +15,14 @@
 @import "./setting/reset";
 
 @import "./page/index";
+@import "./page/products-list";
 
 // 匯入google fonts
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&display=swap");
+// 匯入 Bootstrap icon
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css'); 
+// 匯入 fontAwesome
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css'); 
 
 
 // @import "layout"; //固定會用到header、footer的放layout。之前rwd寫在這裡，先用bootstrap，有需要再另開_layout.scss
