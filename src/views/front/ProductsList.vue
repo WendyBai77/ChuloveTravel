@@ -45,14 +45,14 @@
       <!-- 產品排列 -->
       <div class="container col-lg-9">
         <div class="d-flex justify-content-end mb-lg-4 mb-3">
-          <select class="products-select">
+          <select class="products-select" name="productsSort">
             <option value="default">產品預設排列</option>
             <option value="cheapToExpensive">價格：低至高</option>
             <option value="expensiveToCheap">價格：高至低</option>
           </select>
         </div>
         <!-- 產品列表  -->
-        <ul class="products mb-8">
+        <ul class="products mb-7">
           <li class="mb-3">
             <a href="#" class="card card-row"
               ><img
@@ -62,9 +62,9 @@
               />
               <div class="card-body ps-lg-5 pe-lg-6">
                 <div>
-                  <h5 class="card-title mb-3">
+                  <h2 class="card-title mb-3">
                     桃園青埔 Xpark 都會型水生公園門票
-                  </h5>
+                  </h2>
                   <p class="truncate-multiline mb-4">
                     Xpark 於 2022
                     年初推行大型企劃『Xbook~流向我們的物語』，透過五官享受海底之書的魅力!
@@ -73,9 +73,7 @@
                 </div>
                 <div class="d-flex justify-content-end align-items-center">
                   <div class="card-price">
-                    <p>
-                      NT 550 起<span class="d-sm-inline d-none"> / 每人</span>
-                    </p>
+                    <p>NT 550<span class="d-sm-inline d-none"> / 每人</span></p>
                   </div>
                 </div>
               </div></a
@@ -88,7 +86,7 @@
             </a>
             <!-- 購物車 -->
             <div class="ms-2">
-              <i class="bi bi-cart-fill"></i>
+              <a href="#"><i class="bi bi-cart-fill"></i></a>
             </div>
           </li>
           <!-- 之後再改成渲染 -->
@@ -101,9 +99,9 @@
               />
               <div class="card-body ps-lg-5 pe-lg-6">
                 <div>
-                  <h5 class="card-title mb-3">
+                  <h2 class="card-title mb-3">
                     桃園青埔 Xpark 都會型水生公園門票
-                  </h5>
+                  </h2>
                   <p class="truncate-multiline mb-4">
                     Xpark 於 2022
                     年初推行大型企劃『Xbook~流向我們的物語』，透過五官享受海底之書的魅力!
@@ -113,7 +111,7 @@
                 <div class="d-flex justify-content-end align-items-center">
                   <div class="card-price">
                     <p>
-                      NT 550 起<span class="d-sm-inline d-none"> / 每人</span>
+                      NT 550 <span class="d-sm-inline d-none"> / 每人</span>
                     </p>
                   </div>
                 </div>
@@ -127,7 +125,7 @@
             </a>
             <!-- 購物車 -->
             <div class="ms-2">
-              <i class="bi bi-cart-fill"></i>
+              <a href="#"><i class="bi bi-cart-fill"></i></a>
             </div>
           </li>
         </ul>

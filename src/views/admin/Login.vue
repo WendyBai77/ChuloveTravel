@@ -1,14 +1,14 @@
 <template>
-  <div class="container">
-    <h1 class="h3 mb-3 font-weight-normal">請先登入</h1>
+  <div class="login container">
+    <h1 class="h3 my-6 font-weight-normal text-center">登入</h1>
     <div class="my-5 row justify-content-center">
       <v-form
         ref="form"
-        class="col-lg-10"
+        class="col-lg-4 col-md-6 login-form px-4 py-4"
         v-slot="{ errors }"
         @submit="signIn()"
       >
-        <div class="mb-3">
+        <div class="mb-4">
           <label for="email" class="form-label">Email</label>
           <v-field
             id="email"
@@ -23,7 +23,7 @@
           <error-message name="email" class="invalid-feedback"></error-message>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
           <label for="password" class="form-label">密碼</label>
           <v-field
             id="password"
@@ -41,9 +41,7 @@
             class="invalid-feedback"
           ></error-message>
         </div>
-        <button type="submit" class="btn btn-lg btn-primary w-100 mt-3">
-          登入
-        </button>
+        <button type="submit" class="btn btn-primary w-100 mt-5">登入</button>
       </v-form>
     </div>
   </div>

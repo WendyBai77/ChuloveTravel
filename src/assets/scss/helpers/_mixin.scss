@@ -41,7 +41,7 @@
 
 // <=375px時顯示
 @mixin w-xxs {
-    @media (max-width: 374.98px) {
+    @media (max-width: 375px) {
         @content;
     }
 }

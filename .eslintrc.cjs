@@ -21,6 +21,7 @@ module.exports = {
           "About",
           "Index",
           "Products",
+          "Product",
           "Cart",
           "Dashboard",
           "Orders",

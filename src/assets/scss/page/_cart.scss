@@ -1,0 +1,156 @@
+.cart {
+  .cart-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+    @include w-md-max{
+        font-size: 20px;
+    }
+  }
+  .cart-radius {
+    border-radius: 16px;
+    border: 2px solid #e685b5;
+  }
+}
+
+.orders {
+  .card-row {
+    flex-direction: row;
+    color: #1e1e1e;
+    padding: 0.5rem;
+    border-color: #f5d9e8;
+    @include w-xxs{
+        flex-direction:column;
+    }
+  }
+  .orders-img {
+    width: 35%;
+    height: auto;
+    @include w-md-max {
+        width:40%;
+    }
+    @include w-xxs{
+        width:50%;
+    }
+  }
+  .card-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    @include w-xxs{
+        font-size: 20px;
+    }
+  }
+  .card-price {
+    font-weight: 500;
+    font-size: 24px;
+    padding-bottom: 1.2rem;
+    @include w-xxs{
+        padding-bottom: 0;
+    }
+  }
+}
+
+.orders-confirm {
+  flex-direction: column;
+}
+
+.orders {
+  position: relative;
+  .bi-trash-fill {
+    position: absolute;
+    right: 15px;
+    top: -3px;
+    color: #acb1e7;
+    font-size: 24px;
+    padding: 6px;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.orders {
+  .count-icon {
+    font-size: 24px;
+    padding: 6px;
+    span {
+      right: 217px;
+      bottom: 88px;
+      @include w-xxs {
+        bottom: 70px;
+      }
+    }
+  }
+  .count-btn {
+    color: #acb1e7;
+    .fa-circle-plus {
+      position: absolute;
+      right: 175px;
+      bottom: 92px;
+      @include w-xxs {
+        bottom: 75px;
+      }
+    }
+    .fa-circle-minus {
+      position: absolute;
+      right: 250px;
+      bottom: 92px;
+      @include w-xxs {
+        bottom: 75px;
+      }
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.orders-total {
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0 1rem 0;
+  }
+  h3,
+  p {
+    font-weight: 300;
+    font-size: 20px;
+  }
+  .total-text-lh {
+    line-height: 38px;
+  }
+}
+
+.orders-coupon {
+  position: relative;
+  input {
+    position: absolute;
+    padding: 5px;
+    border-radius: 8px 0 0 8px;
+    top: 0px;
+    left: -192px;
+    border: 2px solid #9cd1f3;
+    &:focus {
+        outline: none;
+        border: 2px solid #F5D9E8;
+      }
+  }
+  button {
+    border-radius: 0 8px 8px 0;
+  }
+}
+
+.orders-form{
+    input,textarea{
+        border-color: #f5d9e8;
+    }
+    .form-control:focus {
+        color: #1E1E1E;
+        border-color: #86b7fe;
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+    }
+}
+

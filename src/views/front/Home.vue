@@ -8,8 +8,10 @@
       <!--to加入對應連結。讓使用者可點擊-->
       <router-link to="/">首頁</router-link> |
       <router-link to="/products-list">前台產品列表</router-link> |
+      <router-link to="/product">單一產品頁</router-link> |
       <router-link to="/cart">前台購物車</router-link> |
-      <router-link to="/admin/products-list">後台產品頁</router-link>
+      <router-link to="/cart-complete">購物車結帳完成</router-link> |
+      <router-link to="/login">登入頁</router-link> |
     </div>
     <!-- 呈現路由配置元件(一個網頁顯示的區域)。 加上才能切換頁面 -->
     <router-view></router-view>
