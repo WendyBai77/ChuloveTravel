@@ -12,7 +12,7 @@
 }
 
 // <= 992px時顯示
-@mixin w-lg-mix {
+@mixin w-lg-max {
     @media (max-width: 991.98px) {
         @content;
     }

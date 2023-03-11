@@ -1,9 +1,9 @@
 <template>
   <div class="container pt-lg-7">
     <!--左側選單 md -->
-    <div class="row pt-md-5">
+    <div class="row">
       <ul
-        class="nav-list nav-list-md d-lg-none d-flex justify-content-center border-0"
+        class="nav-list nav-list-md d-lg-none d-flex justify-content-center border-0 pt-sm-7 pb-sm-5"
       >
         <li>
           <a class="nav-link rounded-0">所有產品類別</a>
@@ -22,7 +22,7 @@
         </li>
       </ul>
     </div>
-    <div class="row py-lg-3">
+    <div class="row py-lg-5">
       <!--左側選單 lg-->
       <div class="col-lg-3 mb-lg-0">
         <ul
@@ -53,69 +53,34 @@
         </div>
         <!-- 產品列表  -->
         <ul class="products mb-7">
-          <li class="mb-3">
-            <a href="#" class="card card-row"
+          <li class="mb-3" v-for="product in products" :key="product.id">
+            <router-link class="card card-row" :to="`/product/${product.id}`"
               ><img
                 class="card-row-img object-cover"
-                src="/src/assets/img/xpark.png"
+                :src="product.imageUrl"
                 alt="Xpark"
               />
-              <div class="card-body ps-lg-5 pe-lg-6">
+              <div
+                class="card-body ps-lg-5 pe-lg-6 d-flex flex-column justify-content-between"
+              >
                 <div>
                   <h2 class="card-title mb-3">
-                    桃園青埔 Xpark 都會型水生公園門票
+                    {{ product.title }}
                   </h2>
                   <p class="truncate-multiline mb-4">
-                    Xpark 於 2022
-                    年初推行大型企劃『Xbook~流向我們的物語』，透過五官享受海底之書的魅力!
-                    深受大小朋友的喜愛，情人約會、親子同樂都適合!
+                    {{ product.description }}
                   </p>
                 </div>
-                <div class="d-flex justify-content-end align-items-center">
+                <div class="d-flex justify-content-end">
                   <div class="card-price">
-                    <p>NT 550<span class="d-sm-inline d-none"> / 每人</span></p>
-                  </div>
-                </div>
-              </div></a
-            >
-            <!-- 追蹤商品 -->
-            <a class="like-icon" href="#">
-              <i class="fa-regular fa-heart"></i>
-              <!--點擊追蹤 愛心效果  -->
-              <i class="fa-solid fa-heart collect"></i>
-            </a>
-            <!-- 購物車 -->
-            <div class="ms-2">
-              <a href="#"><i class="bi bi-cart-fill"></i></a>
-            </div>
-          </li>
-          <!-- 之後再改成渲染 -->
-          <li class="mb-3">
-            <a href="#" class="card card-row"
-              ><img
-                class="card-row-img object-cover"
-                src="/src/assets/img/xpark.png"
-                alt="Xpark"
-              />
-              <div class="card-body ps-lg-5 pe-lg-6">
-                <div>
-                  <h2 class="card-title mb-3">
-                    桃園青埔 Xpark 都會型水生公園門票
-                  </h2>
-                  <p class="truncate-multiline mb-4">
-                    Xpark 於 2022
-                    年初推行大型企劃『Xbook~流向我們的物語』，透過五官享受海底之書的魅力!
-                    深受大小朋友的喜愛，情人約會、親子同樂都適合!
-                  </p>
-                </div>
-                <div class="d-flex justify-content-end align-items-center">
-                  <div class="card-price">
-                    <p>
-                      NT 550 <span class="d-sm-inline d-none"> / 每人</span>
+                    <p class="fs-6">
+                      TWD
+                      <span> {{ product.price }}</span>
+                      元
                     </p>
                   </div>
                 </div>
-              </div></a
+              </div></router-link
             >
             <!-- 追蹤商品 -->
             <a class="like-icon" href="#">
@@ -136,21 +101,26 @@
 </template>
 
 <script>
-// 匯入 jquery
-import $ from "jquery";
+//取出環境變數
+const { VITE_API, VITE_PATH } = import.meta.env;
 
 export default {
   data() {
-    return {};
+    return {
+      products: [],
+    };
+  },
+  methods: {
+    getProducts() {
+      this.$http
+        .get(`${VITE_API}/api/${VITE_PATH}/products/all`)
+        .then((res) => {
+          this.products = res.data.products;
+        });
+    },
   },
   mounted() {
-    $(document).ready(function () {
-      $(".like-icon").click(function (e) {
-        // console.log("click");
-        e.preventDefault();
-        $(this).find(".fa-heart").toggle();
-      });
-    });
+    this.getProducts();
   },
 };
 </script>

@@ -1,179 +1,13 @@
 <template>
-  <div class="header">
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-      <!-- mx-auto bootstrap會自動產生 margin 加align-->
-      <div class="container-fluid mx-auto align-items-center">
-        <!-- lg以上隱藏 logo-->
-        <h1>
-          <a class="navbar-brand d-lg-none" href="index.html"> 揪愛一起玩 </a>
-        </h1>
-        <!-- .navbar-toggler 漢堡式選單按鈕 -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <!-- 選單項目 .collapse .navbar-collapse 用於外層中斷點群組和隱藏導覽列內容 -->
-        <div
-          class="collapse navbar-collapse justify-content-evenly"
-          id="navbarSupportedContent"
-        >
-          <!-- lg以上顯示 logo-->
-          <h1>
-            <a class="navbar-brand d-lg-block d-none" href="index.html">
-              揪愛一起玩
-            </a>
-          </h1>
-
-          <ul class="navbar-nav mb-2 mb-lg-0 main-menu main-menu-lg-mix">
-            <li class="nav-item px-2">
-              <a
-                class="nav-link darkgary"
-                aria-current="page"
-                data-toggle
-                href="#"
-                >行程</a
-              >
-            </li>
-            <li class="nav-item px-2">
-              <a
-                class="nav-link darkgary"
-                aria-current="page"
-                data-toggle
-                href="#"
-                >住宿</a
-              >
-            </li>
-            <li class="nav-item px-2">
-              <a
-                class="nav-link darkgary"
-                aria-current="page"
-                data-toggle
-                href="#"
-                >景點門票</a
-              >
-            </li>
-          </ul>
-          <!--lg以上顯示 （漢堡選單 圖示呈現)-->
-          <ul class="navbar-nav mb-2 mb-lg-0 px-1 icon-menu icon-menu-lg">
-            <li class="nav-item px-1 d-lg-block d-none">
-              <a
-                class="nav-link"
-                aria-current="page"
-                data-toggle
-                href="#"
-                title="收藏"
-              >
-                <img
-                  src="/src/assets/img/Property1=ph_heart-fill.svg"
-                  alt="collect"
-                />
-              </a>
-            </li>
-            <li class="nav-item px-1 d-lg-block d-none">
-              <a
-                class="nav-link"
-                aria-current="page"
-                data-toggle
-                href="#"
-                title="折價券"
-              >
-                <img
-                  src="/src/assets/img/Property1=mdi_coupon.svg"
-                  alt="coupon"
-                />
-              </a>
-            </li>
-            <li class="nav-item px-1 d-lg-block d-none">
-              <a
-                class="nav-link"
-                aria-current="page"
-                data-toggle
-                href="#"
-                title="會員中心"
-              >
-                <img
-                  src="/src/assets/img/Property1=account.svg"
-                  alt="account"
-                />
-              </a>
-            </li>
-            <li class="nav-item px-1 d-lg-block d-none">
-              <a
-                class="nav-link"
-                aria-current="page"
-                data-toggle
-                href="#"
-                title="購物車"
-              >
-                <img src="/src/assets/img/Property1=Variant8.svg" alt="cart" />
-                <span
-                  class="position-absolute translate-middle badge rounded-pill bg-pink-300"
-                >
-                  1
-                </span>
-              </a>
-            </li>
-          </ul>
-          <!-- lg以下顯示 （漢堡選單 圖示轉文字)-->
-          <ul
-            class="navbar-nav mb-2 mb-lg-0 px-1 icon-menu d-lg-none icon-menu-lg-mix"
-          >
-            <li class="nav-item px-1">
-              <a
-                class="nav-link darkgary"
-                aria-current="page"
-                data-toggle
-                href="#"
-                >收藏
-              </a>
-            </li>
-            <li class="nav-item px-1">
-              <a
-                class="nav-link darkgary"
-                aria-current="page"
-                data-toggle
-                href="#"
-                >折價券
-              </a>
-            </li>
-            <li class="nav-item px-1">
-              <a
-                class="nav-link darkgary"
-                aria-current="page"
-                data-toggle
-                href="#"
-                >會員中心
-              </a>
-            </li>
-            <li class="nav-item px-1">
-              <a
-                class="nav-link darkgary"
-                aria-current="page"
-                data-toggle
-                href="#"
-                >購物車
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-
+  <!-- Navbar -->
   <div class="banner container">
     <div class="banner-content">
       <h2 class="text-gary-100 mb-4">
         <span> 愛最大 玩最好</span> 創造美好回憶不用等
       </h2>
-      <a class="btn btn-primary" href="#">說走就走 出發Go</a>
+      <router-link class="btn btn-primary" to="/products-list"
+        >說走就走 出發Go</router-link
+      >
     </div>
   </div>
   <!-- 揪愛推薦 -->
@@ -316,7 +150,9 @@
             <p class="card-text py-2">
               訂行程 看遊記<span class="d-block py-lg-4">一站搞定</span>
             </p>
-            <a class="btn btn-primary feature-btn" href="#"> 出發Go </a>
+            <router-link class="btn btn-primary feature-btn" to="/products-list"
+              >出發Go</router-link
+            >
           </div>
         </div>
       </li>
@@ -391,65 +227,13 @@
     </div>
   </div>
   <!-- footer -->
-  <div class="footer">
-    <nav
-      class="navbar justify-content-lg-between align-items-lg-center align-items-start"
-    >
-      <div class="container-fluid mx-auto footer-style">
-        <h1>
-          <a class="navbar-brand" href="index.html"> 揪愛一起玩 </a>
-        </h1>
-
-        <div class="main-menu">
-          <h5><a class="darkgary" href="#">商品列表</a></h5>
-        </div>
-        <ul class="icon-menu d-flex">
-          <li>
-            <a href="#">
-              <img src="/src/assets/img/Property1=fb.svg" alt="fb" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="/src/assets/img/Property1=ig.svg" alt="ig" />
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="/src/assets/img/Property1=line.svg" alt="line" />
-            </a>
-          </li>
-        </ul>
-
-        <div
-          class="border-top container-fluid d-flex justify-content-lg-center justify-content-sm-start"
-        >
-          <p class="text-gary-300 text-lg-center text-sm-start py-2">
-            ©2022 Wendy Bai. All Rights Reserved
-            此網站僅作為面試作品使用，非商業用途
-          </p>
-        </div>
-      </div>
-    </nav>
-  </div>
 </template>
 
 <script>
-// 匯入 jquery
-// import $ from "jquery";
-
 export default {
   data() {
     return {};
   },
-  mounted() {
-    // $(document).ready(function () {
-    //   /* 漢堡選單 */
-    //   $(".nav-link").on("click", function () {
-    //     console.log("click");
-    //     $(".navbar-collapse").collapse("hide");
-    //   });
-    // });
-  },
+  mounted() {},
 };
 </script>

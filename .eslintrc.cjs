@@ -28,6 +28,8 @@ module.exports = {
           "Login",
           "Collection",
           "Coupon",
+          "Navbar",
+          "Footer",
         ],
       },
     ],

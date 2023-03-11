@@ -1,32 +1,30 @@
 <template>
-  <div class="container">
+  <div class="container pt-0 mb-8">
     <div class="row">
       <div class="pt-md-5">
         <div class="product row d-flex justify-content-between">
           <div class="mb-3">
             <img
               class="card-row-img object-cover"
-              src="/src/assets/img/xpark.png"
+              :src="product.imageUrl"
               alt="Xpark"
             />
             <div href="#" class="card card-row pt-3">
               <div
-                class="card-body ps-lg-5 pe-lg-6 px-2 d-flex justify-content-between align-items-center"
+                class="card-body ps-lg-5 pe-lg-6 px-2 pt-4 d-flex justify-content-between"
               >
                 <div class="product-top">
-                  <h2 class="card-title mb-3">
-                    桃園青埔 Xpark 都會型水生公園門票
+                  <h2 class="card-title mb-4">
+                    {{ product.title }}
                   </h2>
-                  <p class="truncate-multiline mb-4">
-                    Xpark 於 2022
-                    年初推行大型企劃『Xbook~流向我們的物語』，透過五官享受海底之書的魅力!
-                    深受大小朋友的喜愛，情人約會、親子同樂都適合!
+                  <p class="mb-4">
+                    {{ product.description }}
                   </p>
                 </div>
-                <div class="d-flex justify-content-end align-items-center">
-                  <div class="card-price">
-                    <p>
-                      NT 550 <span class="d-sm-inline d-none"> / 每人</span>
+                <div class="pt-6 d-flex justify-content-end align-items-center">
+                  <div class="card-price d-flex flex-column">
+                    <p class="fs-6">
+                      TWD <span>{{ product.price }} </span>元
                     </p>
                     <a class="btn btn-primary mt-3" href="#">加入購物車</a>
                   </div>
@@ -57,33 +55,44 @@
     <div class="card-body ps-lg-5 pe-lg-6 px-2">
       <div class="product-body">
         <h2 class="card-title mb-4">商品說明</h2>
-        <h3 class="mb-4">
-          Xpark為台灣首座新都會型水生公園。將生活在地球上各種地域的生物們的環境，透過空間演出與科技的融合，加以忠實的重現。在連氣溫、濕度、味道及聲音都經過縝密計算的空間裡，從天花板到地坪、延伸至水槽的影像演出呈現出
-          360°
-          具魄力的沉浸式空間。來訪旅客彷彿真的身歷其境，使用五感體驗各真實場景。主角，是生活在那裡的生物們，隨環境變遷而演變進化的生物們的不思議，從各種角度將其魅力性襯托出來的環境演出也是一大特徵。Xpark
-          是一個滿足人們無止盡的「對於求知的慾望和獲知的喜悅」，並在世界上也是獨一無二的寓教於樂設施。
+        <h3 class="mb-4 pb-7">
+          {{ product.content }}
         </h3>
-        <p class="border-bottom pb-7">
-          ＊館區最新消息及詳細說明請參考Xpark官網
-        </p>
       </div>
       <!-- 參考別人怎麼玩-->
       <div class="d-flex flex-rowalign-items-center">
-        <div class="reference container product-footer">
-          <h2 class="mb-5 mt-6 h2-style">參考別人怎麼玩 不怕踩雷氣噗噗</h2>
+        <div class="reference container product-footer border-top">
+          <h2 class="mb-5 mt-7 h2-style">參考別人怎麼玩 不怕踩雷氣噗噗</h2>
           <div class="row justify-content-center">
             <div class="card col-lg-6">
-              <a href="#">
+              <a
+                v-if="product.Url_reference"
+                :href="product.Url_reference"
+                target="_blank"
+              >
                 <img
-                  src="/src/assets/img/image79@2x.png"
+                  :src="product.imageUrl_reference"
                   class="card-img-top reference-card-img-top product-card-img-top object-cover position-relative"
                   alt="參考遊記"
                 />
                 <div
                   class="card-body reference-card-body pt-5 text-gary-500 position-relative"
                 >
-                  <h4 class="card-text">約會溜小孩都適合</h4>
-                  <p class="card-text pt-2">Xpark有哪些展區必看</p>
+                  <h4 class="card-text">{{ product.description_reference }}</h4>
+                  <p class="card-text pt-2">{{ product.content_reference }}</p>
+                </div>
+              </a>
+              <a v-else href="#">
+                <img
+                  :src="product.imageUrl_reference"
+                  class="card-img-top reference-card-img-top product-card-img-top object-cover position-relative"
+                  alt="參考遊記"
+                />
+                <div
+                  class="card-body reference-card-body pt-5 text-gary-500 position-relative"
+                >
+                  <h4 class="card-text">{{ product.description_reference }}</h4>
+                  <p class="card-text pt-2">{{ product.content_reference }}</p>
                 </div>
               </a>
             </div>
@@ -95,21 +104,27 @@
 </template>
 
 <script>
-// 匯入 jquery
-import $ from "jquery";
+const { VITE_API, VITE_PATH } = import.meta.env;
 
 export default {
   data() {
-    return {};
+    return {
+      product: {},
+    };
+  },
+  methods: {
+    getProduct() {
+      const { id } = this.$route.params;
+      this.$http
+        .get(`${VITE_API}/api/${VITE_PATH}/product/${id}`)
+        .then((res) => {
+          console.log(res);
+          this.product = res.data.product;
+        });
+    },
   },
   mounted() {
-    $(document).ready(function () {
-      $(".like-icon").click(function (e) {
-        // console.log("click");
-        e.preventDefault();
-        $(this).find(".fa-heart").toggle();
-      });
-    });
+    this.getProduct();
   },
 };
 </script>

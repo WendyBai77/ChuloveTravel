@@ -19,17 +19,11 @@ const router = createRouter({
           name: "全部產品列表",
           component: () => import("../views/front/ProductsList.vue"),
         },
-        //先暫時顯示畫面，之後再修正
         {
-          path: "product",
+          path: "product/:id",
           name: "單一產品頁",
           component: () => import("../views/front/Product.vue"),
         },
-        // {
-        //   path: "product/:id",
-        //   name: "單一產品頁",
-        //   component: () => import("../views/front/Product.vue"),
-        // },
         {
           path: "collection",
           name: "收藏商品",

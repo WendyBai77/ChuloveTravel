@@ -3,7 +3,9 @@
     <div
       class="row justify-content-lg-between justify-content-sm-center align-items-center"
     >
-      <ul class="col cart-title py-5 d-flex justify-content-evenly">
+      <ul
+        class="col cart-title pt-7 pb-3 pt-md-8 pb-md-2 d-flex justify-content-evenly"
+      >
         <li>
           <p class="cart-radius px-md-4 px-2 py-3 text-center">Step1</p>
           <p class="px-lg-4 px-3 pt-3">建立訂單</p>
@@ -56,7 +58,7 @@
             </li>
             <!-- 之後再改成渲染 -->
           </ul>
-          <ul class="col-lg-12 orders-total px-lg-7 pt-3 border-top">
+          <ul class="col-lg-12 orders-total px-lg-3 pt-3 border-top">
             <li>
               <h3>商品總額</h3>
               <p class="card-price text-end">NT 550</p>
@@ -83,7 +85,7 @@
           </ul>
         </div>
         <!-- 收件資料 -->
-        <div class="row orders-form justify-content-lg-center">
+        <div class="row orders-form justify-content-lg-center mx-0">
           <h2 class="col-lg-7 mb-5 mt-6 h2-style">收件資料</h2>
           <!-- 表單驗證 開始 (區域註冊)。透過ref讓外層元件可取用內層元件 -->
           <div class="col-lg-7 orders row px-0 mx-0">

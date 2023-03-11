@@ -18,6 +18,9 @@
 }
 
 .nav-list-md {
+  @include w-sm{
+    padding: 4rem 0 2rem 0;
+  }
   li {
     position: relative;
     .link-icon::before {
@@ -31,11 +34,8 @@
   a {
     padding: 12px;
     @include w-sm {
-      padding: 12px 20px;
+      padding: 12px 15px;
       font-size: 18px;
-    }
-    @include w-xxs {
-      padding: 12px 8px;
     }
     &:hover {
       color: #ff8ecb;
@@ -58,6 +58,7 @@
 .products {
   li {
     position: relative;
+    height: 250px;
   }
   .card-row {
     flex-direction: row;
@@ -69,8 +70,8 @@
     }
   }
   .card-row-img {
-    width: 30%;
-    height: auto;
+    width: 28%;
+    height: 200px;
   }
   .card-body {
     h2 {
@@ -82,21 +83,26 @@
       font-size: 16px;
       max-width: 500px;
     }
-    .card-price {
-      padding-right: 30px;
-    }
   }
 }
 
 .products {
-    .card-price p {
-      font-weight: 500;
-      font-size: 24px;
-      line-height: 28.8px;
-    }
-    span {
-      font-size: 20px;
-      line-height: 30px;
+    .card-price{
+      padding-right: 25px;
+      p {
+        margin-bottom: 0;
+      }
+      display: flex;
+      align-items: flex-end;
+      @include w-sm{
+        padding-right: 0px;
+      }
+      span {
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28.8px;
+        padding: 0 6px;
+      } 
     }
   }
 
@@ -122,14 +128,6 @@
         text-overflow: ellipsis;
         overflow: hidden;
         word-wrap: break-word;
-      }
-      .card-price {
-        p {
-          font-size: 20px;
-          @include w-xxs {
-            font-size: 18px;
-          }
-        }
       }
     }
   }
@@ -161,16 +159,13 @@
 
   .bi-cart-fill {
     position: absolute;
-    top: 153px;
+    top: 151px;
     right: 10px;
     color: #acb1e7;
     font-size: 24px;
     padding: 6px;
     &:hover {
       opacity: 0.7;
-    }
-    @include w-md-max {
-      top: 127px;
     }
   }
 }
