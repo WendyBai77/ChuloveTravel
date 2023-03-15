@@ -1,4 +1,9 @@
 <template>
+  <VueLoading
+    v-model:active="isLoading"
+    :color="color"
+    :is-full-page="fullPage"
+  />
   <div class="container pt-0 mb-8">
     <div class="row">
       <div class="pt-md-5">
@@ -26,7 +31,13 @@
                     <p class="fs-6">
                       TWD <span>{{ product.price }} </span>元
                     </p>
-                    <a class="btn btn-primary mt-3" href="#">加入購物車</a>
+                    <button
+                      type="button"
+                      class="btn btn-primary mt-3"
+                      @click="() => addToCart(product.id)"
+                    >
+                      加入購物車
+                    </button>
                   </div>
                 </div>
               </div>
@@ -104,12 +115,18 @@
 </template>
 
 <script>
+import { mapActions } from "pinia";
+import cartStore from "../../stores/cartStore";
+
 const { VITE_API, VITE_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
       product: {},
+      isLoading: false,
+      fullPage: true,
+      color: "#ACB1E7",
     };
   },
   methods: {
@@ -118,12 +135,15 @@ export default {
       this.$http
         .get(`${VITE_API}/api/${VITE_PATH}/product/${id}`)
         .then((res) => {
-          console.log(res);
+          console.log("Product.vue -> getProduct()", res);
           this.product = res.data.product;
+          this.isLoading = false;
         });
     },
+    ...mapActions(cartStore, ["addToCart"]),
   },
   mounted() {
+    this.isLoading = true;
     this.getProduct();
   },
 };

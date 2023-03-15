@@ -1,4 +1,9 @@
 <template>
+  <VueLoading
+    v-model:active="isLoading"
+    :color="color"
+    :is-full-page="fullPage"
+  />
   <div class="login container">
     <h1 class="h3 my-6 font-weight-normal text-center">登入</h1>
     <div class="my-5 row justify-content-center">
@@ -48,6 +53,10 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
+
+const { VITE_API } = import.meta.env;
+
 export default {
   data() {
     return {
@@ -55,13 +64,15 @@ export default {
         username: "",
         password: "",
       },
-      isLoading: false, //預設無讀取效果
+      isLoading: false,
+      fullPage: true,
+      color: "#ACB1E7",
     };
   },
   methods: {
     signIn() {
       this.isLoading = true;
-      const api = `${import.meta.env.VITE_API}/admin/signin`;
+      const api = `${VITE_API}/admin/signin`;
       this.$http
         .post(api, this.user)
         .then((res) => {
@@ -70,13 +81,17 @@ export default {
           // console.log(token, expired);
           //將token和expired 存到cookie。expired原始格式是unix timestamp，需要轉型將字串轉換為日期!
           document.cookie = `wendyToken=${token}; expires=${new Date(expired)}`;
-          // console.log(res);
+          console.log(res);
           this.isLoading = false;
           // 路徑導向 後台購物車列表
           this.$router.push("/admin/products-list");
         })
         .catch((err) => {
-          alert(err.response.data.message);
+          this.isLoading = false;
+          Swal.fire({
+            icon: "error",
+            title: err.response.data.message,
+          });
         });
     },
   },

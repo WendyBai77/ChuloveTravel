@@ -1,6 +1,6 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-// Vue loading套件 "註冊元件"
+// 引入Vue loading套件
 import Loading from "vue-loading-overlay";
 import "vue-loading-overlay/dist/css/index.css";
 
@@ -45,8 +45,10 @@ const app = createApp(App);
 app.use(createPinia());
 //使用app.use將vue與router進行綁定
 app.use(router);
+
 // 全域註冊 loading套件
 app.component("VueLoading", Loading);
+
 //使用app.use將vue與axios進行綁定
 app.use(VueAxios, axios);
 // 掛載 Global 的 VeeValidate 元件

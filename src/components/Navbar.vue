@@ -94,19 +94,19 @@
               </a>
             </li>
             <li class="nav-item px-1 d-lg-block d-none">
-              <a
+              <router-link
                 class="nav-link"
                 aria-current="page"
                 data-toggle
-                href="#"
-                title="會員中心"
+                to="/login"
               >
                 <img
                   src="/src/assets/img/Property1=account.svg"
                   alt="account"
                 />
-              </a>
+              </router-link>
             </li>
+            <!-- 購物車 -->
             <li class="nav-item px-1 d-lg-block d-none">
               <router-link
                 class="nav-link"
@@ -118,7 +118,7 @@
                 <span
                   class="position-absolute translate-middle badge rounded-pill bg-pink-300"
                 >
-                  1
+                  {{ carts.length }}
                 </span>
               </router-link>
             </li>
@@ -169,22 +169,20 @@
     </nav>
   </div>
 </template>
+
 <script>
-// 匯入 jquery
-// import $ from "jquery";
+import { mapActions, mapState } from "pinia";
+import cartStore from "../stores/cartStore";
 
 export default {
-  data() {
-    return {};
+  computed: {
+    ...mapState(cartStore, ["carts"]),
+  },
+  methods: {
+    ...mapActions(cartStore, ["getCart"]),
   },
   mounted() {
-    // $(document).ready(function () {
-    //   /* 漢堡選單 */
-    //   $(".nav-link").on("click", function () {
-    //     console.log("click");
-    //     $(".navbar-collapse").collapse("hide");
-    //   });
-    // });
+    this.getCart();
   },
 };
 </script>

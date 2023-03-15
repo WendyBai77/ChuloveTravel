@@ -59,7 +59,7 @@
     <h2 class="mb-5 mt-6 h2-style">參考別人怎麼玩 不怕踩雷氣噗噗</h2>
     <div class="row justify-content-lg-between justify-content-sm-center">
       <div class="card col-lg-4">
-        <a href="#">
+        <router-link to="/product/-NPvMcQ0qcLHng3hjaH6">
           <img
             src="/src/assets/img/image79@2x.png"
             class="card-img-top reference-card-img-top position-relative"
@@ -71,11 +71,10 @@
             <h4 class="card-text">約會溜小孩都適合</h4>
             <p class="card-text pt-2">Xpark有哪些展區必看</p>
           </div>
-        </a>
+        </router-link>
       </div>
-
       <div class="card col-lg-4">
-        <a href="#">
+        <router-link to="/product/-NPvXYEFu8VyB5iYiEV1">
           <img
             src="/src/assets/img/image62@2x.png"
             class="card-img-top reference-card-img-top position-relative"
@@ -87,10 +86,10 @@
             <h4 class="card-text">山水沙灘美得像幅畫</h4>
             <p class="card-text pt-2">到澎湖這回要玩SUP立式划槳</p>
           </div>
-        </a>
+        </router-link>
       </div>
       <div class="card col-lg-4">
-        <a href="#">
+        <router-link to="/product/-NPvdm-WDQVh1pM-Pv2X">
           <img
             src="/src/assets/img/image80@2x.png"
             class="card-img-top reference-card-img-top position-relative"
@@ -102,7 +101,7 @@
             <h4 class="card-text">住了會感動的山中民宿</h4>
             <p class="card-text pt-2">聽海浪聲入眠這才是我要的舒壓之旅</p>
           </div>
-        </a>
+        </router-link>
       </div>
     </div>
   </div>
@@ -169,7 +168,6 @@
               <img
                 src="/src/assets/img/Frame399@2x.png"
                 class="card-img-top object-cover card-style rounded-4"
-                style="height: 400px"
                 alt="花蓮"
               />
               <div class="card-img-overlay position-set">
@@ -184,7 +182,6 @@
               <img
                 src="/src/assets/img/Frame400@3x.png"
                 class="card-img-top object-cover card-style rounded-4"
-                style="height: 400px"
                 alt="高雄"
               />
               <div class="card-img-overlay position-set">
@@ -199,7 +196,6 @@
               <img
                 src="/src/assets/img/南投@2x.png"
                 class="card-img-top object-cover card-style rounded-4"
-                style="height: 400px"
                 alt="南投"
               />
               <div class="card-img-overlay position-set">
@@ -214,7 +210,6 @@
               <img
                 src="/src/assets/img/台中@2x.png"
                 class="card-img-top object-cover card-style rounded-4"
-                style="height: 400px"
                 alt="台中"
               />
               <div class="card-img-overlay position-set">
@@ -234,6 +229,5 @@ export default {
   data() {
     return {};
   },
-  mounted() {},
 };
 </script>

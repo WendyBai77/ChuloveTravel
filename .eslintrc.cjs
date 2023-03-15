@@ -30,6 +30,7 @@ module.exports = {
           "Coupon",
           "Navbar",
           "Footer",
+          "Pagination",
         ],
       },
     ],

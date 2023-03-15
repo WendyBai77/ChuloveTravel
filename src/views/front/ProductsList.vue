@@ -1,4 +1,9 @@
 <template>
+  <VueLoading
+    v-model:active="isLoading"
+    :color="color"
+    :is-full-page="fullPage"
+  />
   <div class="container pt-lg-7">
     <!--左側選單 md -->
     <div class="row">
@@ -89,38 +94,75 @@
               <i class="fa-solid fa-heart collect"></i>
             </a>
             <!-- 購物車 -->
-            <div class="ms-2">
-              <a href="#"><i class="bi bi-cart-fill"></i></a>
-            </div>
+            <button
+              type="button"
+              class="ms-2 border-0 p-0"
+              @click="() => addToCart(product.id)"
+            >
+              <i class="bi bi-cart-fill"></i>
+            </button>
           </li>
         </ul>
-        <!--pagination-->
+        <!-- 產品分頁元件 -->
+        <Pagination :pages="page" :get-product="getData"></Pagination>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-//取出環境變數
+import { mapActions } from "pinia";
+import cartStore from "../../stores/cartStore";
+
+import Pagination from "@/components/Pagination.vue";
+
 const { VITE_API, VITE_PATH } = import.meta.env;
 
 export default {
   data() {
     return {
       products: [],
+      // 產品分頁
+      page: {},
+      isLoading: false,
+      fullPage: true,
+      color: "#ACB1E7",
     };
   },
+  // 註冊區域元件 - 分頁
+  components: { Pagination },
   methods: {
+    // 取得產品列表
     getProducts() {
       this.$http
         .get(`${VITE_API}/api/${VITE_PATH}/products/all`)
         .then((res) => {
           this.products = res.data.products;
+          this.isLoading = false;
+        });
+    },
+    ...mapActions(cartStore, ["addToCart"]),
+    //取得產品資料，並夾帶page（放入預設參數）
+    getData(page = 1) {
+      this.$http
+        .get(`${VITE_API}/api/${VITE_PATH}/products?page=${page}`)
+        .then((res) => {
+          const { products, pagination } = res.data;
+          //將api取得的產品資料，傳到data資料裡的products和page
+          this.products = products;
+          this.page = pagination;
+          console.log("getData_pagination", res);
+          this.isLoading = false;
+        })
+        .catch((err) => {
+          alert(err.response.data.message);
         });
     },
   },
   mounted() {
+    this.isLoading = true;
     this.getProducts();
+    this.getData();
   },
 };
 </script>
