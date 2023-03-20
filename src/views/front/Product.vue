@@ -9,11 +9,7 @@
       <div class="pt-md-5">
         <div class="product row d-flex justify-content-between">
           <div class="mb-3">
-            <img
-              class="card-row-img object-cover"
-              :src="product.imageUrl"
-              alt="Xpark"
-            />
+            <img class="card-row-img object-cover" :src="product.imageUrl" />
             <div href="#" class="card card-row pt-3">
               <div
                 class="card-body ps-lg-5 pe-lg-6 px-2 pt-4 d-flex justify-content-between"
@@ -26,15 +22,29 @@
                     {{ product.description }}
                   </p>
                 </div>
-                <div class="pt-6 d-flex justify-content-end align-items-center">
+                <div class="d-flex justify-content-end align-items-center">
                   <div class="card-price d-flex flex-column">
+                    <!-- 商品數量 -->
+                    <div class="d-flex align-items-center mb-3">
+                      <label for="productQty" class="fs-7 me-3">數量:</label>
+                      <select
+                        name="productQty"
+                        id="productQty"
+                        class="form-select w-auto"
+                        v-model="qty"
+                      >
+                        <option v-for="i in 20" :key="i + '123'" :value="i">
+                          {{ i }}
+                        </option>
+                      </select>
+                    </div>
                     <p class="fs-6">
-                      TWD <span>{{ product.price }} </span>元
+                      TWD <span>{{ product.price }} </span>
                     </p>
                     <button
                       type="button"
                       class="btn btn-primary mt-3"
-                      @click="() => addToCart(product.id)"
+                      @click="() => addToCart(product.id, qty)"
                     >
                       加入購物車
                     </button>
@@ -48,16 +58,6 @@
               <!--點擊追蹤 愛心效果  -->
               <i class="fa-solid fa-heart collect"></i>
             </a>
-            <!-- 加減號 icon-->
-            <div class="ms-2 count-icon">
-              <a class="count-btn disabled"
-                ><i class="fa-solid fa-circle-plus"></i>
-              </a>
-              <span class="position-absolute">1</span>
-              <a class="count-btn disabled"
-                ><i class="fa-solid fa-circle-minus"></i
-              ></a>
-            </div>
           </div>
         </div>
       </div>
@@ -115,8 +115,9 @@
 </template>
 
 <script>
-import { mapActions } from "pinia";
+import { mapActions, mapState } from "pinia";
 import cartStore from "../../stores/cartStore";
+import Swal from "sweetalert2";
 
 const { VITE_API, VITE_PATH } = import.meta.env;
 
@@ -127,7 +128,12 @@ export default {
       isLoading: false,
       fullPage: true,
       color: "#ACB1E7",
+      // 預設qty為1
+      qty: 1,
     };
+  },
+  computed: {
+    ...mapState(cartStore, ["cart", "loadingStatus"]),
   },
   methods: {
     getProduct() {
@@ -138,9 +144,15 @@ export default {
           console.log("Product.vue -> getProduct()", res);
           this.product = res.data.product;
           this.isLoading = false;
+        })
+        .catch((err) => {
+          Swal.fire({
+            icon: "error",
+            title: err.response.data.message,
+          });
         });
     },
-    ...mapActions(cartStore, ["addToCart"]),
+    ...mapActions(cartStore, ["addToCart", "updateCart"]),
   },
   mounted() {
     this.isLoading = true;

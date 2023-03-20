@@ -50,7 +50,7 @@
       <!-- 產品排列 -->
       <div class="container col-lg-9">
         <div class="d-flex justify-content-end mb-lg-4 mb-3">
-          <select class="products-select" name="productsSort">
+          <select class="products-select text-center" name="productsSort">
             <option value="default">產品預設排列</option>
             <option value="cheapToExpensive">價格：低至高</option>
             <option value="expensiveToCheap">價格：高至低</option>
@@ -81,7 +81,6 @@
                     <p class="fs-6">
                       TWD
                       <span> {{ product.price }}</span>
-                      元
                     </p>
                   </div>
                 </div>
@@ -115,6 +114,8 @@ import { mapActions } from "pinia";
 import cartStore from "../../stores/cartStore";
 
 import Pagination from "@/components/Pagination.vue";
+
+import Swal from "sweetalert2";
 
 const { VITE_API, VITE_PATH } = import.meta.env;
 
@@ -155,7 +156,10 @@ export default {
           this.isLoading = false;
         })
         .catch((err) => {
-          alert(err.response.data.message);
+          Swal.fire({
+            icon: "error",
+            title: err.response.data.message,
+          });
         });
     },
   },

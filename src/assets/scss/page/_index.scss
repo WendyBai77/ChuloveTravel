@@ -22,7 +22,8 @@
   }
 }
 
-.main-menu, .icon-menu-lg-mix {
+.main-menu,
+.icon-menu-lg-mix {
   a {
     display: inline-block;
     padding: 0.5rem;
@@ -32,14 +33,14 @@
   }
 }
 
-@include w-lg-max{
-  .navbar{
-    .main-menu-lg-mix{
+@include w-lg-max {
+  .navbar {
+    .main-menu-lg-mix {
       margin-top: 0.25rem;
     }
     .icon-menu-lg-mix {
       margin-top: -0.9rem;
-      }
+    }
   }
 }
 
@@ -53,6 +54,38 @@
     &:hover {
       opacity: 0.7;
     }
+  }
+}
+
+@include w-lg-max{
+  .navbar-cart-lg-none{
+    .icon-cart-style{
+      position: absolute;
+      top: -3px;
+      right: 76px;
+    }
+  }
+  .navbar-cart-position{
+    position: relative;
+  }
+}
+
+// 購物車hover
+.cart-hover-block {
+  width: 340px;
+  position: fixed;
+  right: 2%;
+  top: 11%;
+  z-index: 30;
+}
+.cart-hover-istrue {
+  position: relative;
+  .icon-trash-style {
+    position: absolute;
+    top: 8px;
+    right: 7px;
+    font-size: 20px;
+    padding: 4px;
   }
 }
 
@@ -89,7 +122,7 @@
     font-weight: 700;
     font-size: 40px;
     line-height: 48px;
-    @include w-sm{
+    @include w-sm {
       font-size: 28px;
       line-height: 36px;
     }
@@ -144,7 +177,8 @@
   border-radius: 16px;
   z-index: 2;
 }
-.reference .card,.city .card{
+.reference .card,
+.city .card {
   border: transparent;
   background-color: transparent;
 }
@@ -267,10 +301,10 @@
       transform: scale(1.2);
       transition: all 0.3s;
     }
-    @include w-lg-max{
+    @include w-lg-max {
       height: 300px;
     }
-    @include w-sm{
+    @include w-sm {
       height: 250px;
     }
   }
@@ -325,8 +359,7 @@
       flex-direction: column;
     }
   }
-  .main-menu h5{
+  .main-menu h5 {
     padding: 5px;
   }
 }
-

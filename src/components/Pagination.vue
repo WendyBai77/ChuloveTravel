@@ -1,10 +1,7 @@
 <template>
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center mb-7">
-      <li
-        class="page-item pagination-style"
-        :class="{ disabled: !pages.has_pre }"
-      >
+      <li class="page-item" :class="{ disabled: !pages.has_pre }">
         <a
           class="page-link"
           href="#"
@@ -50,3 +47,9 @@ export default {
   props: ["pages", "getProduct"],
 };
 </script>
+
+<style lang="scss">
+.page-item.active {
+  border-bottom: 2px solid #d6ecfa;
+}
+</style>

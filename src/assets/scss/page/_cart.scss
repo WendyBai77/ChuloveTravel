@@ -1,27 +1,17 @@
-.cart {
-  .row{
-    @include w-lg{
-      margin-bottom: 50px;
-    }
-    @include w-lg-max{
-      margin-bottom: 40px;
-    }
-  }
+.order-style {
   .cart-title {
     font-weight: 500;
-    font-size: 24px;
-    line-height: 24px;
-    @include w-md-max{
-        font-size: 20px;
-    }
+    font-size: 20px;
+    line-height: 20px;
+    padding-top: 93px;
   }
   .cart-radius {
     border-radius: 16px;
-    border: 2px solid #e685b5;
+    border: 2px solid #ACB1E7;
   }
 }
 
-.orders-confirm{
+.orders-confirm {
   h2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -29,44 +19,46 @@
     text-overflow: ellipsis;
     overflow: hidden;
     word-wrap: break-word;
+    @include w-md-max{
+      -webkit-line-clamp: 1;
+    }
   }
 }
 
 .orders {
   .card-row {
-    flex-direction: row;
     color: #1e1e1e;
-    padding: 0.5rem;
     border-color: #f5d9e8;
-    @include w-md-max{
-      flex-direction:column;
-  }
   }
   .orders-img {
-    width: 35%;
-    height: 120px;
+    width: 25%;
+    max-height: 160px;
+    object-position: center center;
     @include w-md-max {
-        width:40%;
+      width: 40%;
+      max-height: 200px;
     }
-    @include w-xxs{
-        width:50%;
-        height: 100px;
+    @include w-sm {
+      width: 48%;
+      max-height: 170px;
     }
   }
   .card-title {
     font-weight: 500;
     font-size: 24px;
     line-height: 30px;
-    @include w-xxs{
-        font-size: 20px;
+    @include w-sm {
+      font-size: 20px;
     }
   }
+
   .card-price {
-    font-weight: 500;
-    font-size: 24px;
-    padding-bottom: 1.2rem;
-    @include w-xxs{
+    span {
+      font-weight: 500;
+      font-size: 26px;
+      @include w-xxs {
         padding-bottom: 0;
+      }
     }
   }
 }
@@ -76,7 +68,7 @@
   .bi-trash-fill {
     position: absolute;
     right: 15px;
-    top: -3px;
+    top: 7px;
     color: #acb1e7;
     font-size: 24px;
     padding: 6px;
@@ -86,34 +78,42 @@
   }
 }
 
+.orders{
+  .input-group{
+    max-width: 250px;
+  } 
+}
+
 .orders {
   .count-icon {
     font-size: 24px;
     padding: 6px;
     span {
       right: 217px;
-      bottom: 88px;
+      bottom: 44px;
       @include w-xxs {
-        bottom: 70px;
+        bottom: 45px;
       }
     }
   }
   .count-btn {
     color: #acb1e7;
     .fa-circle-plus {
-      position: absolute;
       right: 175px;
-      bottom: 92px;
+      bottom: 48px;
       @include w-xxs {
-        bottom: 75px;
+        bottom: 50px;
       }
     }
     .fa-circle-minus {
-      position: absolute;
       right: 250px;
-      bottom: 92px;
+      bottom: 48px;
       @include w-xxs {
-        bottom: 75px;
+        bottom: 50px;
+      }
+      @include w-sm {
+        right: 280px;
+        bottom: 50px;
       }
     }
     &:hover {
@@ -130,7 +130,7 @@
     padding: 1.2rem 0 1rem 0;
   }
   h3,
-  p {
+  span {
     font-weight: 300;
     font-size: 20px;
   }
@@ -139,34 +139,34 @@
   }
 }
 
+// 新寫法
 .orders-coupon {
-  position: relative;
   input {
-    position: absolute;
-    padding: 5px;
-    border-radius: 8px 0 0 8px;
-    top: 0px;
-    left: -192px;
     border: 2px solid #9cd1f3;
+    max-width: 250px;
     &:focus {
-        outline: none;
-        border: 2px solid #F5D9E8;
-      }
+      outline: none;
+      border: 2px solid #f5d9e8;
+    }
   }
-  button {
-    border-radius: 0 8px 8px 0;
+  .form-control:focus{
+    box-shadow: unset;
   }
 }
 
-.orders-form{
-    input,textarea{
-        border-color: #f5d9e8;
-    }
-    .form-control:focus {
-        color: #1E1E1E;
-        border-color: #86b7fe;
-        outline: 0;
-        box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
-    }
-}
 
+.orders-form {
+  input,
+  textarea {
+    border-color: #f5d9e8;
+  }
+  .form-control:focus {
+    color: #1e1e1e;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+  }
+  @include w-lg-max{
+    padding-bottom: 6rem;
+  }
+}

@@ -4,25 +4,12 @@
   }
 }
 
-.cart-complete {
-  .orders-img {
-    width: 35%;
-    height: auto;
-    @include w-md-max {
-      width: 50%;
-    }
-    @include w-xxs {
-      width: 100%;
-    }
-  }
-  .card-title {
-    font-size: 30px;
-    line-height: 36px;
-    @include w-md-max {
-      font-size: 24px;
-    }
-    @include w-xxs {
-      font-size: 30px;
+.orders-confirm-complete {
+  .orders-total {
+    h3,
+    span {
+      font-weight: 500;
+      font-size: 26px;
     }
   }
 }
@@ -33,25 +20,31 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 0 1rem 0;
-    @include w-xxs {
+    @include w-sm {
       flex-direction: column;
       align-items: start;
     }
   }
-  h3{
+  h3 {
     border-bottom: 1.5px solid #e685b5;
   }
-  h3,p {
+  h3,
+  p {
     font-weight: 500;
     font-size: 24px;
   }
+  .paid-text-style {
+    color: #dc3545;
+  }
 }
 
-@include w-xxs {
-    .cart-complete-footer {
-        p{
-            padding-top: 10px;
-        }
+@include w-sm {
+  .cart-complete-footer {
+    p {
+      margin-top: 10px;
     }
+    button {
+      margin-top: 15px;
+    }
+  }
 }
-

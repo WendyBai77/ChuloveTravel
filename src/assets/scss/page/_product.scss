@@ -89,7 +89,7 @@
   .fa-regular {
     position: absolute;
     right: 195px;
-    bottom: 45px;
+    bottom: 32px;
     color: #acb1e7;
     font-size: 24px;
     padding: 6px;
@@ -107,7 +107,7 @@
   .fa-solid.fa-heart.collect {
     position: absolute;
     right: 195px;
-    bottom: 45px;
+    bottom: 32px;
     color: #acb1e7;
     font-size: 24px;
     padding: 6px;
@@ -117,54 +117,6 @@
     }
     @include w-md-max {
       display: none;
-    }
-  }
-}
-
-.product {
-  .count-icon {
-    font-size: 24px;
-    padding: 6px;
-    span {
-      right: 106px;
-      bottom: 141px;
-      @include w-lg-max {
-        right: 67px;
-        bottom: 153px;
-      }
-      @include w-sm {
-        bottom: 178px;
-      }
-    }
-  }
-  .count-btn {
-    color: #acb1e7;
-    .fa-circle-plus {
-      position: absolute;
-      right: 58px;
-      bottom: 145px;
-      @include w-lg-max {
-        right: 19px;
-        bottom: 155px;
-      }
-      @include w-sm {
-        bottom: 180px;
-      }
-    }
-    .fa-circle-minus {
-      position: absolute;
-      right: 145px;
-      bottom: 145px;
-      @include w-lg-max {
-        right: 106px;
-        bottom: 155px;
-      }
-      @include w-sm {
-        bottom: 180px;
-      }
-    }
-    &:hover {
-      opacity: 0.7;
     }
   }
 }

@@ -35,7 +35,7 @@ const router = createRouter({
           component: () => import("../views/front/Cart.vue"),
         },
         {
-          path: "cart-complete",
+          path: "cart-complete/:orderId",
           name: "購物車完成",
           component: () => import("../views/front/CartComplete.vue"),
         },
