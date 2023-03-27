@@ -13,7 +13,6 @@
         訂單完成！<span class="mt-2">感謝訂購</span>
       </h2>
       <h2 class="mb-6 h2-style">祝您有段美好的旅程</h2>
-      <!-- <a class="btn btn-primary px-6 py-2 mb-6" href="#">回首頁</a> -->
       <router-link class="btn btn-primary px-6 py-2 mb-6" to="/"
         >回首頁</router-link
       >

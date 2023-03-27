@@ -4,26 +4,29 @@
     :color="color"
     :is-full-page="fullPage"
   />
-  <div class="container pt-lg-7">
+  <div class="banner container">
+    <div class="banner-content banner-content-products">
+      <h2 class="text-gary-100 mb-4">
+        <span> 愛最大 玩最好</span> 創造美好回憶不用等
+      </h2>
+    </div>
+  </div>
+  <div class="container pt-lg-3">
     <!--左側選單 md -->
     <div class="row">
       <ul
         class="nav-list nav-list-md d-lg-none d-flex justify-content-center border-0 pt-sm-7 pb-sm-5"
       >
-        <li>
-          <a class="nav-link rounded-0">所有產品類別</a>
-        </li>
-        <li>
-          <a class="nav-link rounded-0" href="#">行程</a>
-          <i class="bi bi-dash-lg link-icon"></i>
-        </li>
-        <li>
-          <a class="nav-link rounded-0" href="#">住宿</a>
-          <i class="bi bi-dash-lg link-icon"></i>
-        </li>
-        <li>
-          <a class="nav-link rounded-0" href="#">景點門票</a>
-          <i class="bi bi-dash-lg link-icon"></i>
+        <li v-for="category in categories" :key="category">
+          <a
+            class="nav-link"
+            style="cursor: pointer"
+            @click.prevent="changeCategory(category)"
+            :class="{ active: category === filterCategory }"
+          >
+            {{ category }}
+            <i class="bi bi-dash-lg link-icon"></i>
+          </a>
         </li>
       </ul>
     </div>
@@ -33,140 +36,125 @@
         <ul
           class="nav-list d-lg-block d-none d-flex flex-lg-column flex-md-row"
         >
-          <li class="">
-            <a class="nav-link bg-secondary">所有產品類別</a>
-          </li>
-          <li class="">
-            <a class="nav-link" href="#">行程</a>
-          </li>
-          <li class="">
-            <a class="nav-link" href="#">住宿</a>
-          </li>
-          <li class="">
-            <a class="nav-link" href="#">景點門票</a>
+          <li v-for="category in categories" :key="category">
+            <a
+              class="nav-link"
+              style="cursor: pointer"
+              @click.prevent="changeCategory(category)"
+              :class="{ active: category === filterCategory }"
+            >
+              {{ category }}</a
+            >
           </li>
         </ul>
       </div>
       <!-- 產品排列 -->
       <div class="container col-lg-9">
         <div class="d-flex justify-content-end mb-lg-4 mb-3">
-          <select class="products-select text-center" name="productsSort">
-            <option value="default">產品預設排列</option>
+          <select
+            class="products-select text-center"
+            name="productsSort"
+            v-model="selectSort"
+            @change="sortProducts"
+          >
+            <option disabled value="default">產品預設排列</option>
             <option value="cheapToExpensive">價格：低至高</option>
             <option value="expensiveToCheap">價格：高至低</option>
           </select>
         </div>
-        <!-- 產品列表  -->
-        <ul class="products mb-7">
-          <li class="mb-3" v-for="product in products" :key="product.id">
-            <router-link class="card card-row" :to="`/product/${product.id}`"
-              ><img
-                class="card-row-img object-cover"
-                :src="product.imageUrl"
-                alt="Xpark"
-              />
-              <div
-                class="card-body ps-lg-5 pe-lg-6 d-flex flex-column justify-content-between"
-              >
-                <div>
-                  <h2 class="card-title mb-3">
-                    {{ product.title }}
-                  </h2>
-                  <p class="truncate-multiline mb-4">
-                    {{ product.description }}
-                  </p>
-                </div>
-                <div class="d-flex justify-content-end">
-                  <div class="card-price">
-                    <p class="fs-6">
-                      TWD
-                      <span> {{ product.price }}</span>
+        <!-- 產品列表 判斷篩選條件是否為空  -->
+        <template v-if="filterProducts.length === 0">
+          <h2 class="mt-7 text-center">無相符產品</h2>
+        </template>
+        <template v-else>
+          <ul class="products mb-7">
+            <li
+              class="mb-3"
+              v-for="product in filterProducts"
+              :key="product.id"
+            >
+              <router-link class="card card-row" :to="`/product/${product.id}`"
+                ><img
+                  class="card-row-img object-cover"
+                  :src="product.imageUrl"
+                  alt="Xpark"
+                />
+                <div
+                  class="card-body ps-md-5 pe-md-6 d-flex flex-column justify-content-between"
+                >
+                  <div>
+                    <h2 class="card-title mb-3">
+                      {{ product.title }}
+                    </h2>
+                    <p class="truncate-multiline mb-4">
+                      {{ product.description }}
                     </p>
                   </div>
-                </div>
-              </div></router-link
-            >
-            <!-- 追蹤商品 -->
-            <a class="like-icon" href="#">
-              <i class="fa-regular fa-heart"></i>
-              <!--點擊追蹤 愛心效果  -->
-              <i class="fa-solid fa-heart collect"></i>
-            </a>
-            <!-- 購物車 -->
-            <button
-              type="button"
-              class="ms-2 border-0 p-0"
-              @click="() => addToCart(product.id)"
-            >
-              <i class="bi bi-cart-fill"></i>
-            </button>
-          </li>
-        </ul>
-        <!-- 產品分頁元件 -->
-        <Pagination :pages="page" :get-product="getData"></Pagination>
+                  <div class="d-flex justify-content-end">
+                    <div class="card-price">
+                      <p class="fs-6">
+                        TWD
+                        <span> {{ product.price }}</span>
+                      </p>
+                    </div>
+                  </div>
+                </div></router-link
+              >
+              <!-- 追蹤商品 -->
+              <a class="like-icon" href="#">
+                <i class="fa-regular fa-heart"></i>
+                <!--點擊追蹤 愛心效果  -->
+                <i class="fa-solid fa-heart collect"></i>
+              </a>
+              <!-- 購物車 -->
+              <button
+                type="button"
+                class="ms-2 border-0 p-0"
+                @click="() => addToCart(product.id)"
+              >
+                <i class="bi bi-cart-fill"></i>
+              </button>
+            </li>
+          </ul>
+        </template>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from "pinia";
+import { mapActions, mapState, mapWritableState } from "pinia";
 import cartStore from "../../stores/cartStore";
-
-import Pagination from "@/components/Pagination.vue";
-
-import Swal from "sweetalert2";
-
-const { VITE_API, VITE_PATH } = import.meta.env;
+import productsStore from "../../stores/productsStore";
 
 export default {
   data() {
-    return {
-      products: [],
-      // 產品分頁
-      page: {},
-      isLoading: false,
-      fullPage: true,
-      color: "#ACB1E7",
-    };
+    return {};
   },
-  // 註冊區域元件 - 分頁
-  components: { Pagination },
   methods: {
-    // 取得產品列表
-    getProducts() {
-      this.$http
-        .get(`${VITE_API}/api/${VITE_PATH}/products/all`)
-        .then((res) => {
-          this.products = res.data.products;
-          this.isLoading = false;
-        });
-    },
     ...mapActions(cartStore, ["addToCart"]),
-    //取得產品資料，並夾帶page（放入預設參數）
-    getData(page = 1) {
-      this.$http
-        .get(`${VITE_API}/api/${VITE_PATH}/products?page=${page}`)
-        .then((res) => {
-          const { products, pagination } = res.data;
-          //將api取得的產品資料，傳到data資料裡的products和page
-          this.products = products;
-          this.page = pagination;
-          console.log("getData_pagination", res);
-          this.isLoading = false;
-        })
-        .catch((err) => {
-          Swal.fire({
-            icon: "error",
-            title: err.response.data.message,
-          });
-        });
-    },
+    ...mapActions(productsStore, [
+      "getProducts",
+      "changeCategory",
+      "sortProducts",
+    ]),
+  },
+  computed: {
+    ...mapState(productsStore, [
+      "products",
+      "renderProduct",
+      "filterProducts",
+      "filterCategory",
+      "categories",
+      "isLoading",
+      "fullPage",
+      "color",
+    ]),
+    //mapWritableState可讀寫
+    ...mapWritableState(productsStore, ["selectSort"]),
   },
   mounted() {
-    this.isLoading = true;
     this.getProducts();
-    this.getData();
   },
 };
 </script>

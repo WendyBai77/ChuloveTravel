@@ -10,9 +10,7 @@
 
         <div class="main-menu">
           <h5>
-            <router-link class="darkgary" to="/products-list"
-              >商品列表</router-link
-            >
+            <router-link class="darkgary" to="/products">商品列表</router-link>
           </h5>
         </div>
         <ul class="icon-menu d-flex">

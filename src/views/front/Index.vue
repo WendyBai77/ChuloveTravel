@@ -5,7 +5,7 @@
       <h2 class="text-gary-100 mb-4">
         <span> 愛最大 玩最好</span> 創造美好回憶不用等
       </h2>
-      <router-link class="btn btn-primary" to="/products-list"
+      <router-link class="btn btn-primary" to="/products"
         >說走就走 出發Go</router-link
       >
     </div>
@@ -18,7 +18,7 @@
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
           <a class="btn btn-gary-100 btn-style" href="#">
             <img src="/src/assets/img/Property1=01.svg" alt="nature" />
-            <h3>熱愛大自然</h3>
+            <h3>熱愛自然</h3>
           </a>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
@@ -42,7 +42,7 @@
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
           <a class="btn btn-gary-100 btn-style" href="#">
             <img src="/src/assets/img/Property1=05.svg" alt="nature" />
-            <h3>樂園玩透透</h3>
+            <h3>樂園爽玩</h3>
           </a>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
@@ -149,7 +149,7 @@
             <p class="card-text py-2">
               訂行程 看遊記<span class="d-block py-lg-4">一站搞定</span>
             </p>
-            <router-link class="btn btn-primary feature-btn" to="/products-list"
+            <router-link class="btn btn-primary feature-btn" to="/products"
               >出發Go</router-link
             >
           </div>

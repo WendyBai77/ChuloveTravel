@@ -50,30 +50,30 @@
           </h1>
           <ul class="navbar-nav mb-2 mb-lg-0 main-menu main-menu-lg-mix">
             <li class="nav-item px-2">
-              <a
+              <router-link
                 class="nav-link darkgary"
                 aria-current="page"
                 data-toggle
-                href="#"
-                >行程</a
+                to="/products?category=行程&page=1"
+                >行程</router-link
               >
             </li>
             <li class="nav-item px-2">
-              <a
+              <router-link
                 class="nav-link darkgary"
                 aria-current="page"
                 data-toggle
-                href="#"
-                >住宿</a
+                to="/products?category=住宿&page=1"
+                >住宿</router-link
               >
             </li>
             <li class="nav-item px-2">
-              <a
+              <router-link
                 class="nav-link darkgary"
                 aria-current="page"
                 data-toggle
-                href="#"
-                >景點門票</a
+                to="/products?category=景點門票&page=1"
+                >景點門票</router-link
               >
             </li>
           </ul>
@@ -216,7 +216,10 @@
                 alt="cart"
                 width="80"
               />
-              <RouterLink class="btn btn-primary mt-3 px-4" to="/products-list">
+              <RouterLink
+                class="btn btn-primary mt-3 px-4"
+                to="/products?category=所有產品&page=1"
+              >
                 出發Go
               </RouterLink>
             </div>
@@ -244,13 +247,14 @@
               </a>
             </li>
             <li class="nav-item px-1">
-              <a
+              <router-link
                 class="nav-link darkgary"
                 aria-current="page"
                 data-toggle
-                href="#"
-                >會員中心
-              </a>
+                to="/login"
+              >
+                會員中心</router-link
+              >
             </li>
           </ul>
         </div>

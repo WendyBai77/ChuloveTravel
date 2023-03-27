@@ -9,7 +9,7 @@
     <div class="my-5 row justify-content-center">
       <v-form
         ref="form"
-        class="col-lg-4 col-md-6 login-form px-4 py-4"
+        class="col-lg-4 col-9 login-form px-4 py-4"
         v-slot="{ errors }"
         @submit="signIn()"
       >
@@ -84,7 +84,7 @@ export default {
           console.log(res);
           this.isLoading = false;
           // 路徑導向 後台購物車列表
-          this.$router.push("/admin/products-list");
+          this.$router.push("/admin/products");
         })
         .catch((err) => {
           this.isLoading = false;

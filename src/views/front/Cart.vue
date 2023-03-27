@@ -125,7 +125,9 @@
               </p>
             </li>
             <li class="pt-7 mb-7">
-              <router-link class="darkgary" to="/products-list"
+              <router-link
+                class="darkgary"
+                to="/products?category=所有產品&page=1"
                 ><h3>❮ 繼續購物</h3></router-link
               >
             </li>
@@ -242,7 +244,7 @@
       width="100"
       class="mt-3"
     />
-    <RouterLink class="btn btn-primary mt-3 px-4" to="/products-list">
+    <RouterLink class="btn btn-primary mt-3 px-4" to="/products">
       出發Go
     </RouterLink>
   </div>

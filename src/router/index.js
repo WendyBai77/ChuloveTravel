@@ -15,8 +15,8 @@ const router = createRouter({
           component: () => import("../views/front/Index.vue"),
         },
         {
-          path: "products-list",
-          name: "全部產品列表",
+          path: "products",
+          name: "products",
           component: () => import("../views/front/ProductsList.vue"),
         },
         {
@@ -57,7 +57,7 @@ const router = createRouter({
       component: () => import("../views/admin/Dashboard.vue"),
       children: [
         {
-          path: "products-list",
+          path: "products",
           name: "後台產品頁",
           component: () => import("../views/admin/DashboardProductsList.vue"),
         },
