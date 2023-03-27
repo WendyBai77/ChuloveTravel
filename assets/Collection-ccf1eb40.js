@@ -1,0 +1,1 @@
+import{_ as e,o as s,c as t,a as c}from"./index-7f8928dd.js";const o={},n={class:"container"},a=c("div",{class:"row justify-content-center pt-7"},[c("div",{class:"col-lg-10"},[c("h2",{class:"mb-4"},"追蹤清單")])],-1),r=[a];function _(i,l){return s(),t("div",n,r)}const f=e(o,[["render",_]]);export{f as default};
