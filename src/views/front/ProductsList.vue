@@ -100,11 +100,17 @@
                   </div>
                 </div></router-link
               >
-              <!-- 追蹤商品 -->
-              <a class="like-icon" href="#">
-                <i class="fa-regular fa-heart"></i>
-                <!--點擊追蹤 愛心效果  -->
-                <i class="fa-solid fa-heart collect"></i>
+              <!-- 追蹤商品  -->
+              <a
+                class="like-icon"
+                href="#"
+                @click.prevent="toggleFollow(product.id)"
+              >
+                <i
+                  class="fa-regular fa-heart"
+                  v-if="followIds.indexOf(product.id) === -1"
+                ></i>
+                <i class="fa-solid fa-heart collect" v-else></i>
               </a>
               <!-- 購物車 -->
               <button
@@ -126,6 +132,7 @@
 import { mapActions, mapState, mapWritableState } from "pinia";
 import cartStore from "../../stores/cartStore";
 import productsStore from "../../stores/productsStore";
+import collectionsStore from "@/stores/collectionsStore";
 
 export default {
   data() {
@@ -138,6 +145,7 @@ export default {
       "changeCategory",
       "sortProducts",
     ]),
+    ...mapActions(collectionsStore, ["toggleFollow"]),
   },
   computed: {
     ...mapState(productsStore, [
@@ -152,6 +160,7 @@ export default {
     ]),
     //mapWritableState可讀寫
     ...mapWritableState(productsStore, ["selectSort"]),
+    ...mapState(collectionsStore, ["followIds"]),
   },
   mounted() {
     this.getProducts();

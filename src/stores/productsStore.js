@@ -2,6 +2,9 @@ import { defineStore } from "pinia";
 import axios from "axios";
 import Swal from "sweetalert2";
 
+import collectionsStore from "./collectionsStore";
+const follow = collectionsStore();
+
 const { VITE_API, VITE_PATH } = import.meta.env;
 
 const productsStore = defineStore("productsStore", {
@@ -32,6 +35,7 @@ const productsStore = defineStore("productsStore", {
           const { products } = res.data;
           this.products = products;
           console.log("this.products", this.products);
+          follow.tempProducts(this.products);
           this.isLoading = false;
         })
         .catch((err) => {

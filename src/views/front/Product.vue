@@ -53,10 +53,16 @@
               </div>
             </div>
             <!-- 追蹤商品 -->
-            <a class="like-icon" href="#">
-              <i class="fa-regular fa-heart"></i>
-              <!--點擊追蹤 愛心效果  -->
-              <i class="fa-solid fa-heart collect"></i>
+            <a
+              class="like-icon"
+              href="#"
+              @click.prevent="toggleFollow(product.id)"
+            >
+              <i
+                class="fa-regular fa-heart"
+                v-if="followIds.indexOf(product.id) === -1"
+              ></i>
+              <i class="fa-solid fa-heart collect" v-else></i>
             </a>
           </div>
         </div>
@@ -118,6 +124,7 @@
 import { mapActions, mapState } from "pinia";
 import cartStore from "../../stores/cartStore";
 import Swal from "sweetalert2";
+import collectionsStore from "@/stores/collectionsStore";
 
 const { VITE_API, VITE_PATH } = import.meta.env;
 
@@ -131,9 +138,6 @@ export default {
       // 預設qty為1
       qty: 1,
     };
-  },
-  computed: {
-    ...mapState(cartStore, ["cart", "loadingStatus"]),
   },
   methods: {
     getProduct() {
@@ -156,7 +160,12 @@ export default {
           });
         });
     },
-    ...mapActions(cartStore, ["addToCart", "updateCart"]),
+    ...mapActions(cartStore, ["addToCart"]),
+    ...mapActions(collectionsStore, ["toggleFollow"]),
+  },
+  computed: {
+    ...mapState(cartStore, ["cart"]),
+    ...mapState(collectionsStore, ["followIds"]),
   },
   mounted() {
     this.isLoading = true;

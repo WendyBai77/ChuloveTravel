@@ -82,27 +82,21 @@
             class="navbar-nav mb-2 mb-lg-0 px-1 icon-menu icon-menu-lg align-items-center"
           >
             <li class="nav-item px-1 d-lg-block d-none">
-              <a
+              <router-link
                 class="nav-link"
                 aria-current="page"
                 data-toggle
                 href="#"
-                title="收藏"
+                to="/collection"
               >
                 <img
                   src="/src/assets/img/Property1=ph_heart-fill.svg"
                   alt="collect"
                 />
-              </a>
+              </router-link>
             </li>
             <li class="nav-item px-1 d-lg-block d-none">
-              <a
-                class="nav-link"
-                aria-current="page"
-                data-toggle
-                href="#"
-                title="折價券"
-              >
+              <a class="nav-link" aria-current="page" data-toggle href="#">
                 <img
                   src="/src/assets/img/Property1=mdi_coupon.svg"
                   alt="coupon"
@@ -229,13 +223,13 @@
             class="navbar-nav mb-2 mb-lg-0 px-1 icon-menu d-lg-none icon-menu-lg-mix"
           >
             <li class="nav-item px-1">
-              <a
+              <router-link
                 class="nav-link darkgary"
                 aria-current="page"
                 data-toggle
-                href="#"
+                to="/collection"
                 >收藏
-              </a>
+              </router-link>
             </li>
             <li class="nav-item px-1">
               <a
