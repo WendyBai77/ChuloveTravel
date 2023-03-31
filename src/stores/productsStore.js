@@ -15,10 +15,10 @@ const productsStore = defineStore("productsStore", {
       isLoading: false,
       fullPage: true,
       color: "#ACB1E7",
-      renderProduct: [],
       // 原定義全部商品，依照點擊來篩選目前類別
       filterCategory: "全部商品",
       categories: ["全部商品", "行程", "住宿", "景點門票"],
+      cityProducts: [],
     };
   },
   actions: {
@@ -52,9 +52,9 @@ const productsStore = defineStore("productsStore", {
     changeCategory(item) {
       this.filterCategory = item;
       // 修改分類後，呼叫價格排序
-      this.sortProducts();
+      this.sortProduct();
     },
-    sortProducts() {
+    sortProduct() {
       let filteredProducts = this.products;
       //判斷"非全部商品"再進行商品分類篩選
       if (this.filterCategory !== "全部商品") {
@@ -67,7 +67,12 @@ const productsStore = defineStore("productsStore", {
       } else if (this.selectSort === "cheapToExpensive") {
         filteredProducts.sort((a, b) => a.price - b.price);
       }
-      this.renderProduct = filteredProducts;
+    },
+    // 取得探索城市對應商品
+    getCityProduct(city) {
+      this.cityProducts = this.products.filter((product) => {
+        return product.title.match(city);
+      });
     },
   },
   getters: {

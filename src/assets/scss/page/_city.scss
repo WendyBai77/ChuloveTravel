@@ -1,0 +1,84 @@
+.city-sidebar {
+  .sidebar-sticky {
+    top: 90px;
+    position: sticky;
+    @include w-md-max {
+      top: 1200px;
+    }
+  }
+  form > p {
+    font-size: 20px;
+  }
+}
+
+.banner-category {
+  height: 400px;
+  max-width: 100%;
+  position: relative;
+  @include w-md-max {
+    height: 350px;
+  }
+  &-hualien {
+    background: url("@/assets/img/hualien-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  &-kaohsiung {
+    background: url("@/assets/img/kaohsiung.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 63%;
+  }
+  &-nantou {
+    background: url("@/assets/img/nantou.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 80%;
+  }
+  &-taichung {
+    background: url("@/assets/img/taichung.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 31%;
+  }
+}
+
+.banner-category {
+  &::after {
+    position: absolute;
+    content: "";
+    background: rgba(255, 255, 255, 0.2);
+    height: 180px;
+    width: 100%;
+    top: 30%;
+    @include w-md-max {
+      height: 130px;
+      top: 38%;
+    }
+  }
+}
+
+.banner-category-content {
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  transform: translateY(-50%);
+  span {
+    display: block;
+  }
+  h2 {
+    color: #1e1e1e;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 2px;
+  }
+  @include w-md-max {
+    h2 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+    top: 60%;
+  }
+}

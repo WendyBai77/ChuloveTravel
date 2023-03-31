@@ -31,6 +31,7 @@ module.exports = {
           "Navbar",
           "Footer",
           "Pagination",
+          "City",
         ],
       },
     ],

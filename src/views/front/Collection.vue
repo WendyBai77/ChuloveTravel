@@ -57,7 +57,7 @@
       v-else
       class="d-flex flex-column justify-content-center align-items-center pt-5 pb-7"
     >
-      <h2 class="mt-7 text-center">目前購物車內無商品！ 請盡情挑選喔～</h2>
+      <h2 class="mt-7 text-center">目前追蹤清單內無商品！ 請盡情挑選喔～</h2>
       <img
         src="/src/assets/img/Property1=Variant8.svg"
         alt="cart"

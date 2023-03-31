@@ -162,7 +162,7 @@
     <div class="city container">
       <h2 class="mb-5 mt-6 h2-style">探索熱門城市</h2>
       <div class="row row-cols-1 row-cols-lg-4 g-4">
-        <a href="#">
+        <router-link to="/city/hualien">
           <div class="col">
             <div class="card">
               <img
@@ -175,8 +175,8 @@
               </div>
             </div>
           </div>
-        </a>
-        <a href="#">
+        </router-link>
+        <router-link to="/city/kaohsiung">
           <div class="col">
             <div class="card">
               <img
@@ -189,8 +189,8 @@
               </div>
             </div>
           </div>
-        </a>
-        <a href="#">
+        </router-link>
+        <router-link to="/city/nantou">
           <div class="col">
             <div class="card">
               <img
@@ -203,8 +203,8 @@
               </div>
             </div>
           </div>
-        </a>
-        <a href="#">
+        </router-link>
+        <router-link to="/city/taichung">
           <div class="col">
             <div class="card">
               <img
@@ -217,7 +217,7 @@
               </div>
             </div>
           </div>
-        </a>
+        </router-link>
       </div>
     </div>
   </div>

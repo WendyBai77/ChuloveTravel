@@ -44,6 +44,11 @@ const router = createRouter({
           name: "折價券",
           component: () => import("../views/front/Coupon.vue"),
         },
+        {
+          path: "city/:name",
+          name: "探索城市",
+          component: () => import("../views/front/City.vue"),
+        },
       ],
     },
     {
