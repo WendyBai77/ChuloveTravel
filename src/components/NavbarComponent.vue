@@ -25,22 +25,24 @@
             </router-link>
           </div>
         </div>
-        <!-- .navbar-toggler 漢堡式選單按鈕 -->
+        <!-- .navbar-toggler 漢堡式選單按鈕。 -->
         <button
           class="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
+          data-auto="true"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
           aria-label="Toggle navigation"
+          @click="toggleNavCollapse"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- 選單項目 .collapse .navbar-collapse 用於外層中斷點群組和隱藏導覽列內容 -->
+        <!-- 選單項目 .collapse .navbar-collapse 用於外層中斷點群組和隱藏導覽列內容。並使用ref定義元素 -->
         <div
-          class="collapse navbar-collapse justify-content-evenly"
+          class="collapse navbar-collapse justify-content-between"
           id="navbarSupportedContent"
+          ref="collapse"
         >
           <!-- lg以上顯示 logo-->
           <h1>
@@ -50,30 +52,39 @@
           </h1>
           <ul class="navbar-nav mb-2 mb-lg-0 main-menu main-menu-lg-mix">
             <li class="nav-item px-2">
-              <router-link
+              <a
                 class="nav-link darkgary"
                 aria-current="page"
                 data-toggle
-                to="/products?category=行程&page=1"
-                >行程</router-link
+                @click.prevent="
+                  toCategory('行程');
+                  closeNavCollapse();
+                "
+                >行程</a
               >
             </li>
             <li class="nav-item px-2">
-              <router-link
+              <a
                 class="nav-link darkgary"
                 aria-current="page"
                 data-toggle
-                to="/products?category=住宿&page=1"
-                >住宿</router-link
+                @click.prevent="
+                  toCategory('住宿');
+                  closeNavCollapse();
+                "
+                >住宿</a
               >
             </li>
             <li class="nav-item px-2">
-              <router-link
+              <a
                 class="nav-link darkgary"
                 aria-current="page"
                 data-toggle
-                to="/products?category=景點門票&page=1"
-                >景點門票</router-link
+                @click.prevent="
+                  toCategory('景點門票');
+                  closeNavCollapse();
+                "
+                >景點門票</a
               >
             </li>
           </ul>
@@ -218,7 +229,7 @@
               </RouterLink>
             </div>
           </div>
-          <!-- lg以下顯示 （漢堡選單 圖示轉文字)-->
+          <!-- lg以下顯示 （漢堡選單 圖示轉文字)。設定關閉漢堡選單-->
           <ul
             class="navbar-nav mb-2 mb-lg-0 px-1 icon-menu d-lg-none icon-menu-lg-mix"
           >
@@ -228,6 +239,7 @@
                 aria-current="page"
                 data-toggle
                 to="/collection"
+                @click="closeNavCollapse"
                 >收藏
               </router-link>
             </li>
@@ -237,6 +249,7 @@
                 aria-current="page"
                 data-toggle
                 href="#"
+                @click="closeNavCollapse"
                 >折價券
               </a>
             </li>
@@ -246,6 +259,7 @@
                 aria-current="page"
                 data-toggle
                 to="/login"
+                @click="closeNavCollapse"
               >
                 會員中心</router-link
               >
@@ -260,10 +274,15 @@
 <script>
 import { mapActions, mapState } from "pinia";
 import cartStore from "../stores/cartStore";
+import Collapse from "bootstrap/js/dist/collapse";
+import productsStore from "../stores/productsStore";
+const store = productsStore();
 
 export default {
   data() {
-    return {};
+    return {
+      collapse: {},
+    };
   },
   computed: {
     ...mapState(cartStore, ["cart", "total"]),
@@ -277,9 +296,26 @@ export default {
     hideCartBlock() {
       this.$refs.cartHover.classList.add("d-none");
     },
+    // 導覽列切換產品列表分類
+    toCategory(name) {
+      store.changeCategory(name);
+      this.$router.push("/products");
+    },
+    // 摺疊漢堡選單
+    toggleNavCollapse() {
+      this.collapse.toggle();
+    },
+    // 關閉漢堡選單
+    closeNavCollapse() {
+      this.collapse.hide();
+    },
   },
   mounted() {
     this.getCart();
+    // 透過$refs指向被collapse，初始不啟用摺疊狀態
+    this.collapse = new Collapse(this.$refs.collapse, {
+      toggle: false,
+    });
   },
 };
 </script>

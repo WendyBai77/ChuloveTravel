@@ -1,4 +1,4 @@
-.city-sidebar {
+.recommend-sidebar {
   .sidebar-sticky {
     top: 90px;
     position: sticky;
@@ -11,40 +11,52 @@
   }
 }
 
-.banner-category {
+.banner-recommend {
   height: 400px;
   max-width: 100%;
   position: relative;
   @include w-md-max {
     height: 350px;
   }
-  &-hualien {
-    background: url("@/assets/img/hualien-unsplash.jpg");
+  &-nature {
+    background: url("@/assets/img/nature unsplash.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
   }
-  &-kaohsiung {
-    background: url("@/assets/img/kaohsiung.jpg");
+  &-exhibition {
+    background: url("@/assets/img/hayffield-l-Is8_wbhU_FM-unsplash.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center 63%;
+    background-position: center center;
   }
-  &-nantou {
-    background: url("@/assets/img/nantou.jpg");
+  &-hotel {
+    background: url("@/assets/img/hotel-unsplash.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center 80%;
+    background-position: center 70%;
   }
-  &-taichung {
-    background: url("@/assets/img/taichung.jpg");
+  &-camp {
+    background: url("@/assets/img/bob-osias-eTsocOQVtkM-unsplash.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center 31%;
+    background-position: center 48%;
+  }
+  &-theme-park {
+    background: url("@/assets/img/quick-ps-pprY3KCsoAg-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 41%;
+  }
+  &-island {
+    background: url("@/assets/img/johnson-hung-aReOMtQczlE-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 45%;
   }
 }
 
-.banner-category {
+.banner-recommend {
   &::after {
     position: absolute;
     content: "";
@@ -59,7 +71,7 @@
   }
 }
 
-.banner-category-content {
+.banner-recommend-content {
   position: absolute;
   top: 55%;
   left: 20%;

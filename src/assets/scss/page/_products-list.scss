@@ -1,10 +1,19 @@
 .banner-content-products{
   position: absolute;
     top: 50%;
-    left: 24%;
+    left: 20%;
     transform: translateY(-50%);
 }
 
+.banner-products {
+  background: url("@/assets/img/felix-rostig-UmV2wr-Vbq8-unsplash.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 480px;
+  max-width: 100%;
+  position: relative;
+}
 
 .nav-list {
   border-radius: 16px;

@@ -19,6 +19,23 @@ const productsStore = defineStore("productsStore", {
       filterCategory: "全部商品",
       categories: ["全部商品", "行程", "住宿", "景點門票"],
       cityProducts: [],
+      // 推薦商品列表
+      recommendProducts: [],
+      // 替換多組推薦類別關鍵字
+      natureKeyword: ["體驗", "林", "山", "鹽田"],
+      exhibitionKeyword: ["展", "展覽"],
+      hotelKeyword: ["住宿", "民宿"],
+      campKeyword: ["露營"],
+      paradiseKeyword: ["樂園", "城堡", "文化村"],
+      islandKeyword: [
+        "澎湖",
+        "金門",
+        "馬祖",
+        "綠島",
+        "蘭嶼",
+        "龜山島",
+        "小琉球",
+      ],
     };
   },
   actions: {
@@ -51,8 +68,6 @@ const productsStore = defineStore("productsStore", {
     },
     changeCategory(item) {
       this.filterCategory = item;
-      // 修改分類後，呼叫價格排序
-      this.sortProduct();
     },
     sortProduct() {
       let filteredProducts = this.products;
@@ -74,9 +89,45 @@ const productsStore = defineStore("productsStore", {
         return product.title.match(city);
       });
     },
+    // 取得推薦商品列表（切換不同推薦類別關鍵字）
+    getRecommendProduct(recommendProducts) {
+      if (recommendProducts === "nature") {
+        this.recommendProducts = this.products.filter((product) => {
+          return this.natureKeyword.some((word) =>
+            product.title.includes(word)
+          );
+        });
+      } else if (recommendProducts === "exhibition") {
+        this.recommendProducts = this.products.filter((product) => {
+          return this.exhibitionKeyword.some((word) =>
+            product.title.includes(word)
+          );
+        });
+      } else if (recommendProducts === "hotel") {
+        this.recommendProducts = this.products.filter((product) => {
+          return this.hotelKeyword.some((word) => product.title.includes(word));
+        });
+      } else if (recommendProducts === "camp") {
+        this.recommendProducts = this.products.filter((product) => {
+          return this.campKeyword.some((word) => product.title.includes(word));
+        });
+      } else if (recommendProducts === "theme-park") {
+        this.recommendProducts = this.products.filter((product) => {
+          return this.paradiseKeyword.some((word) =>
+            product.title.includes(word)
+          );
+        });
+      } else if (recommendProducts === "island") {
+        this.recommendProducts = this.products.filter((product) => {
+          return this.islandKeyword.some((word) =>
+            product.title.includes(word)
+          );
+        });
+      }
+    },
   },
   getters: {
-    // 根據 state.products 和 state.filterCategory 的值，篩選出符合條件的當前分類 currentCategory
+    //將state內資料帶入。篩選出符合條件的當前分類 currentCategory
     filterProducts: (state) => {
       const currentCategory = state.products.filter((product) =>
         state.filterCategory === "全部商品"

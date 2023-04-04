@@ -4,7 +4,7 @@
     :color="color"
     :is-full-page="fullPage"
   />
-  <div class="banner container">
+  <div class="banner-products container">
     <div class="banner-content banner-content-products">
       <h2 class="text-gary-100 mb-4">
         <span> 愛最大 玩最好</span> 創造美好回憶不用等

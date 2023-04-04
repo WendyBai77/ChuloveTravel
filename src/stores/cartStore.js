@@ -26,7 +26,7 @@ const cartStore = defineStore("cartStore", {
       axios
         .get(`${VITE_API}/api/${VITE_PATH}/cart`)
         .then((res) => {
-          console.log("getCart()", res);
+          // console.log("getCart()", res);
           this.cart = res.data.data;
           this.total = res.data.data.total;
           this.final_total = res.data.data.final_total;

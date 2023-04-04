@@ -16,40 +16,40 @@
       <h2 class="mb-5 mt-6 h2-style">揪愛推薦</h2>
       <ul class="recommend row">
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btn-style" href="#">
+          <router-link class="btn btn-gary-100 btn-style" to="/nature">
             <img src="/src/assets/img/Property1=01.svg" alt="nature" />
             <h3>熱愛自然</h3>
-          </a>
+          </router-link>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btn-style" href="#">
-            <img src="/src/assets/img/Property1=02.svg" alt="nature" />
+          <router-link class="btn btn-gary-100 btn-style" to="/exhibition">
+            <img src="/src/assets/img/Property1=02.svg" alt="exhibition" />
             <h3>話題展覽</h3>
-          </a>
+          </router-link>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btn-style" href="#">
-            <img src="/src/assets/img/Property1=03.svg" alt="nature" />
+          <router-link class="btn btn-gary-100 btn-style" to="/hotel">
+            <img src="/src/assets/img/Property1=03.svg" alt="hotel" />
             <h3>熱門住宿</h3>
-          </a>
+          </router-link>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btn-style" href="#">
-            <img src="/src/assets/img/Property1=04.svg" alt="nature" />
+          <router-link class="btn btn-gary-100 btn-style" to="/camp">
+            <img src="/src/assets/img/Property1=04.svg" alt="camp" />
             <h3>戶外露營</h3>
-          </a>
+          </router-link>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btn-style" href="#">
-            <img src="/src/assets/img/Property1=05.svg" alt="nature" />
+          <router-link class="btn btn-gary-100 btn-style" to="/theme-park">
+            <img src="/src/assets/img/Property1=05.svg" alt="theme-park" />
             <h3>樂園爽玩</h3>
-          </a>
+          </router-link>
         </li>
         <li class="col-lg-2 col-sm-6 flex-md-column mb-4">
-          <a class="btn btn-gary-100 btn-style" href="#">
-            <img src="/src/assets/img/Property1=06.svg" alt="nature" />
+          <router-link class="btn btn-gary-100 btn-style" to="/island">
+            <img src="/src/assets/img/Property1=06.svg" alt="island" />
             <h3>離島旅行</h3>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>
