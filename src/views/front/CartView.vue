@@ -125,9 +125,7 @@
               </p>
             </li>
             <li class="pt-7 mb-7">
-              <router-link
-                class="darkgary"
-                to="/products?category=所有產品&page=1"
+              <router-link class="darkgary" to="/products"
                 ><h3>❮ 繼續購物</h3></router-link
               >
             </li>
@@ -300,7 +298,7 @@ export default {
         .then((res) => {
           this.isLoading = false;
           const { orderId } = res.data;
-          console.log("createOrder 結帳", res);
+          // console.log("createOrder 結帳", res);
           Swal.fire({
             icon: "success",
             title: res.data.message,

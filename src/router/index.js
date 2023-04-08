@@ -103,7 +103,15 @@ const router = createRouter({
         },
       ],
     },
+    {
+      path: "/:pathMatch(.*)*",
+      component: () => import("../views/NotFound.vue"),
+    },
   ],
+  linkActiveClass: "active",
+  scrollBehavior() {
+    return { top: 0 };
+  },
 });
 // Vue Router的設定檔建立好之後，就可以匯出給main.js使用
 export default router;

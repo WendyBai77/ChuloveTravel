@@ -14,7 +14,7 @@
           class="navbar-nav mb-2 mb-lg-0 px-1 icon-menu navbar-cart-lg-none d-lg-none"
         >
           <div class="nav-item px-1 icon-cart-style">
-            <router-link class="nav-link" to="/cart">
+            <router-link class="nav-link nav-link-active" to="/cart">
               <img src="/src/assets/img/Property1=Variant8.svg" alt="cart" />
               <span
                 v-if="cart.carts?.length"
@@ -53,7 +53,8 @@
           <ul class="navbar-nav mb-2 mb-lg-0 main-menu main-menu-lg-mix">
             <li class="nav-item px-2">
               <a
-                class="nav-link darkgary"
+                class="nav-link nav-link-active"
+                style="cursor: pointer"
                 aria-current="page"
                 data-toggle
                 @click.prevent="
@@ -65,7 +66,8 @@
             </li>
             <li class="nav-item px-2">
               <a
-                class="nav-link darkgary"
+                class="nav-link nav-link-active"
+                style="cursor: pointer"
                 aria-current="page"
                 data-toggle
                 @click.prevent="
@@ -77,7 +79,8 @@
             </li>
             <li class="nav-item px-2">
               <a
-                class="nav-link darkgary"
+                class="nav-link nav-link-active"
+                style="cursor: pointer"
                 aria-current="page"
                 data-toggle
                 @click.prevent="
@@ -94,10 +97,9 @@
           >
             <li class="nav-item px-1 d-lg-block d-none">
               <router-link
-                class="nav-link"
+                class="nav-link nav-link-active"
                 aria-current="page"
                 data-toggle
-                href="#"
                 to="/collection"
               >
                 <img
@@ -107,16 +109,21 @@
               </router-link>
             </li>
             <li class="nav-item px-1 d-lg-block d-none">
-              <a class="nav-link" aria-current="page" data-toggle href="#">
+              <router-link
+                class="nav-link nav-link-active"
+                aria-current="page"
+                data-toggle
+                to="/coupon"
+              >
                 <img
                   src="/src/assets/img/Property1=mdi_coupon.svg"
                   alt="coupon"
                 />
-              </a>
+              </router-link>
             </li>
             <li class="nav-item px-1 d-lg-block d-none">
               <router-link
-                class="nav-link"
+                class="nav-link nav-link-active"
                 aria-current="page"
                 data-toggle
                 to="/login"
@@ -221,10 +228,7 @@
                 alt="cart"
                 width="80"
               />
-              <RouterLink
-                class="btn btn-primary mt-3 px-4"
-                to="/products?category=所有產品&page=1"
-              >
+              <RouterLink class="btn btn-primary mt-3 px-4" to="/products">
                 出發Go
               </RouterLink>
             </div>
@@ -235,7 +239,7 @@
           >
             <li class="nav-item px-1">
               <router-link
-                class="nav-link darkgary"
+                class="nav-link nav-link-active"
                 aria-current="page"
                 data-toggle
                 to="/collection"
@@ -244,18 +248,18 @@
               </router-link>
             </li>
             <li class="nav-item px-1">
-              <a
-                class="nav-link darkgary"
+              <router-link
+                class="nav-link nav-link-active"
                 aria-current="page"
                 data-toggle
-                href="#"
+                to="/coupon"
                 @click="closeNavCollapse"
                 >折價券
-              </a>
+              </router-link>
             </li>
             <li class="nav-item px-1">
               <router-link
-                class="nav-link darkgary"
+                class="nav-link nav-link-active"
                 aria-current="page"
                 data-toggle
                 to="/login"
@@ -312,10 +316,22 @@ export default {
   },
   mounted() {
     this.getCart();
-    // 透過$refs指向被collapse，初始不啟用摺疊狀態
+    // 透過$refs指向collapse，初始不啟用摺疊狀態
     this.collapse = new Collapse(this.$refs.collapse, {
       toggle: false,
     });
   },
 };
 </script>
+
+<style lang="scss">
+.nav-link-active {
+  color: #1e1e1e;
+  &:hover {
+    color: #ff8ecb;
+  }
+}
+.nav-link-active.active {
+  background: transparent;
+}
+</style>

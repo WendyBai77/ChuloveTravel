@@ -42,10 +42,6 @@ const productsStore = defineStore("productsStore", {
     // 取得產品列表
     getProducts() {
       this.isLoading = true;
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
       axios
         .get(`${VITE_API}/api/${VITE_PATH}/products/all`)
         .then((res) => {

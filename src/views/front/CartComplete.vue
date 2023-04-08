@@ -149,6 +149,10 @@ export default {
     // 付款
     payOrder() {
       this.isLoading = true;
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
       this.$http
         .post(`${VITE_API}/api/${VITE_PATH}/pay/${this.orderId}`)
         .then((res) => {

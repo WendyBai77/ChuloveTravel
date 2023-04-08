@@ -163,7 +163,7 @@ const cartStore = defineStore("cartStore", {
           this.isLoading = false;
           Swal.fire({
             icon: "success",
-            title: res.data.message,
+            title: `已套用折價券：${this.coupon_code}` || res.data.message,
             showConfirmButton: false,
             timer: 1500,
           });

@@ -141,10 +141,6 @@ export default {
   },
   methods: {
     getProduct() {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
       const { id } = this.$route.params;
       this.$http
         .get(`${VITE_API}/api/${VITE_PATH}/product/${id}`)

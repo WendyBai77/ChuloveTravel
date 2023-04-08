@@ -44,19 +44,6 @@
   }
 }
 
-.icon-menu {
-  img {
-    background-size: cover;
-    width: 32px;
-    height: auto;
-  }
-  a {
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-}
-
 @include w-lg-max{
   .navbar-cart-lg-none{
     .icon-cart-style{
@@ -334,9 +321,9 @@
       font-weight: 500;
       font-size: 20px;
       line-height: 24px;
-    }
-    &:hover {
-      opacity: 0.7;
+      &:hover {
+        opacity: 0.7;
+      }
     }
     img {
       background-size: cover;
