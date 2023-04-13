@@ -49,6 +49,11 @@
         <button type="submit" class="btn btn-primary w-100 mt-5">登入</button>
       </v-form>
     </div>
+    <div class="d-flex justify-content-center">
+      <router-link class="btn btn-outline-gary-400 px-6 py-1 mb-6" to="/"
+        >回首頁</router-link
+      >
+    </div>
   </div>
 </template>
 

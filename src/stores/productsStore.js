@@ -47,12 +47,12 @@ const productsStore = defineStore("productsStore", {
         .then((res) => {
           const { products } = res.data;
           this.products = products;
-          console.log("this.products", this.products);
+          // console.log("this.products", this.products);
           follow.tempProducts(this.products);
           this.isLoading = false;
         })
         .catch((err) => {
-          console.log(err.response.data.message);
+          // console.log(err.response.data.message);
           const errMessage =
             err.response?.data?.message || "資料取得失敗，請稍後再試";
           this.isLoading = false;

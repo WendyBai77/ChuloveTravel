@@ -134,11 +134,11 @@ export default {
           // 解構，並將取出的order賦予給定義資料屬性
           const { order } = res.data;
           this.order = order;
-          console.log("getOrder 取出訂單資料", res);
+          // console.log("getOrder 取出訂單資料", res);
         })
         .catch((err) => {
           const errMessage = err.response?.data?.message || "資料錯誤";
-          console.log("getOrder 取出訂單資料", err.response?.data?.message);
+          // console.log("getOrder 取出訂單資料", err.response?.data?.message);
           this.isLoading = false;
           Swal.fire({
             icon: "error",
@@ -155,10 +155,9 @@ export default {
       });
       this.$http
         .post(`${VITE_API}/api/${VITE_PATH}/pay/${this.orderId}`)
-        .then((res) => {
+        .then(() => {
           this.isLoading = false;
           this.getOrder();
-          console.log("payOrder", res);
           Swal.fire({
             icon: "success",
             title: "確認已成功付款",

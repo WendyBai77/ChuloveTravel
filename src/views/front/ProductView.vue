@@ -145,7 +145,7 @@ export default {
       this.$http
         .get(`${VITE_API}/api/${VITE_PATH}/product/${id}`)
         .then((res) => {
-          console.log("Product.vue -> getProduct()", res);
+          // console.log("Product.vue -> getProduct()", res);
           this.product = res.data.product;
           this.isLoading = false;
         })

@@ -163,7 +163,7 @@ export default {
       this.renderProduct = this.recommendProducts.filter((product) => {
         return product.title.match(this.city);
       });
-      console.log("selectArea_this.renderProduct", this.renderProduct);
+      // console.log("selectArea_this.renderProduct", this.renderProduct);
     },
     sortProduct() {
       if (this.selectSort === "expensiveToCheap") {

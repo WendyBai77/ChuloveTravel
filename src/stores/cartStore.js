@@ -82,7 +82,7 @@ const cartStore = defineStore("cartStore", {
       axios
         .put(`${VITE_API}/api/${VITE_PATH}/cart/${item.id}`, { data: cart })
         .then((res) => {
-          console.log("更新購物車:", res);
+          // console.log("更新購物車:", res);
           this.isLoading = false;
           this.loadingStatus.loadingItem = "";
           Swal.fire({

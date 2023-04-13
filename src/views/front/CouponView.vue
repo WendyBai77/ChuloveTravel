@@ -11,7 +11,7 @@
           <div class="card card-row align-items-center">
             <img
               class="card-row-img object-cover d-md-block d-none ps-3"
-              src="src/assets/img/icon-logo.png"
+              src="/src/assets/img/icon-logo.png"
             />
             <div class="card-body d-flex flex-column justify-content-between">
               <h2 class="card-title mb-lg-3 mb-5">

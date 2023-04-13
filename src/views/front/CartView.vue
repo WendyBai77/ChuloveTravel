@@ -298,7 +298,6 @@ export default {
         .then((res) => {
           this.isLoading = false;
           const { orderId } = res.data;
-          // console.log("createOrder 結帳", res);
           Swal.fire({
             icon: "success",
             title: res.data.message,
