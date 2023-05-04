@@ -54,58 +54,95 @@
       </ul>
     </div>
   </div>
-  <!-- 參考別人怎麼玩-->
+
+  <!-- 參考別人怎麼玩 -->
   <div class="reference container">
     <h2 class="mb-5 mt-6 h2-style">參考別人怎麼玩 不怕踩雷氣噗噗</h2>
     <div class="row justify-content-lg-between justify-content-sm-center">
-      <div class="card col-lg-4">
-        <router-link to="/product/-NPvMcQ0qcLHng3hjaH6">
-          <img
-            src="/src/assets/img/image79@2x.png"
-            class="card-img-top reference-card-img-top position-relative"
-            alt="參考遊記"
-          />
-          <div
-            class="card-body reference-card-body pt-5 text-gary-500 position-relative"
-          >
-            <h4 class="card-text">約會溜小孩都適合</h4>
-            <p class="card-text pt-2">Xpark有哪些展區必看</p>
-          </div>
-        </router-link>
-      </div>
-      <div class="card col-lg-4">
-        <router-link to="/product/-NPvXYEFu8VyB5iYiEV1">
-          <img
-            src="/src/assets/img/image62@2x.png"
-            class="card-img-top reference-card-img-top position-relative"
-            alt="參考遊記"
-          />
-          <div
-            class="card-body reference-card-body pt-5 text-gary-500 position-relative"
-          >
-            <h4 class="card-text">山水沙灘美得像幅畫</h4>
-            <p class="card-text pt-2">到澎湖這回要玩SUP立式划槳</p>
-          </div>
-        </router-link>
-      </div>
-      <div class="card col-lg-4">
-        <router-link to="/product/-NPvdm-WDQVh1pM-Pv2X">
-          <img
-            src="/src/assets/img/image80@2x.png"
-            class="card-img-top reference-card-img-top position-relative"
-            alt="參考遊記"
-          />
-          <div
-            class="card-body reference-card-body pt-5 text-gary-500 position-relative"
-          >
-            <h4 class="card-text">住了會感動的山中民宿</h4>
-            <p class="card-text pt-2">聽海浪聲入眠這才是我要的舒壓之旅</p>
-          </div>
-        </router-link>
+      <div class="index-swiper">
+        <swiper
+          :modules="modules"
+          grabCursor
+          navigation
+          :slidesPerView="1.2"
+          :spaceBetween="10"
+          :breakpoints="{
+            768: {
+              slidesPerView: 2.3,
+              spaceBetween: 15,
+            },
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 15,
+            },
+          }"
+        >
+          <swiper-slide>
+            <router-link to="/product/-NPvMcQ0qcLHng3hjaH6">
+              <img
+                src="/src/assets/img/image79@2x.png"
+                class="card-img-top reference-card-img-top position-relative"
+                alt="參考遊記"
+              />
+              <div
+                class="card-body reference-card-body py-5 px-3 text-gary-500 position-relative"
+              >
+                <h4 class="card-text">約會溜小孩都適合</h4>
+                <p class="card-text pt-2">Xpark有哪些展區必看</p>
+              </div>
+            </router-link>
+          </swiper-slide>
+          <swiper-slide>
+            <router-link to="/product/-NPvXYEFu8VyB5iYiEV1">
+              <img
+                src="/src/assets/img/image62@2x.png"
+                class="card-img-top reference-card-img-top position-relative"
+                alt="參考遊記"
+              />
+              <div
+                class="card-body reference-card-body py-5 px-3 text-gary-500 position-relative"
+              >
+                <h4 class="card-text">山水沙灘美得像幅畫</h4>
+                <p class="card-text pt-2">到澎湖這回要玩SUP立式划槳</p>
+              </div>
+            </router-link>
+          </swiper-slide>
+          <swiper-slide>
+            <router-link to="/product/-NPvdm-WDQVh1pM-Pv2X">
+              <img
+                src="/src/assets/img/image80@2x.png"
+                class="card-img-top reference-card-img-top position-relative"
+                alt="參考遊記"
+              />
+              <div
+                class="card-body reference-card-body py-5 px-3 text-gary-500 position-relative"
+              >
+                <h4 class="card-text">住了會感動的山中民宿</h4>
+                <p class="card-text pt-2">聽海浪聲入眠這才是我要的舒壓之旅</p>
+              </div>
+            </router-link>
+          </swiper-slide>
+          <swiper-slide>
+            <router-link to="/product/-NQ-YXhMi25i1QtzoXZY">
+              <img
+                src="/src/assets/img/animation.png"
+                class="card-img-top reference-card-img-top position-relative"
+                alt="參考遊記"
+              />
+              <div
+                class="card-body reference-card-body py-5 px-3 text-gary-500 position-relative"
+              >
+                <h4 class="card-text">吉卜力動畫大師—高畑勲展門票</h4>
+                <p class="card-text pt-2">一覽高畑勲留給我們最後的禮物</p>
+              </div>
+            </router-link>
+          </swiper-slide>
+        </swiper>
       </div>
     </div>
   </div>
-  <!--網站特色  -->
+
+  <!-- 網站特色  -->
   <div class="feature container mt-6">
     <ul class="row">
       <li class="col-lg-12 mb-7">
@@ -225,9 +262,27 @@
 </template>
 
 <script>
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
 export default {
   data() {
-    return {};
+    return {
+      modules: [Navigation],
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    };
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
   },
 };
 </script>
